@@ -42,7 +42,14 @@ module.exports = () => {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
           generator: {
-            filename: 'fonts/[name][ext][query]',
+            filename: 'assets/fonts/[name][ext][query]',
+          },
+        },
+        {
+          test: /\.(json)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/json/[name][ext][query]',
           },
         },
       ],

@@ -24,7 +24,6 @@ export default createGlobalStyle(
     html,
     body {
       font-family: 'Quicksand', sans-serif;
-      background-color: ${theme.colors.bg1};
       color: ${theme.colors.text1};
       font-weight: 500;
     }

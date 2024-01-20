@@ -4,6 +4,8 @@ import {
   RiLoader5Line,
   RiSkipLeftLine,
   RiSkipRightLine,
+  RiStarFill,
+  RiStarLine,
   RiYoutubeFill,
 } from 'react-icons/ri';
 
@@ -14,4 +16,6 @@ export const iconMap: Record<Props.Icons['type'], React.ReactElement> = {
   next: <RiSkipRightLine />,
   previous: <RiSkipLeftLine />,
   youtube: <RiYoutubeFill />,
+  star: <RiStarFill />,
+  starLine: <RiStarLine />,
 };
