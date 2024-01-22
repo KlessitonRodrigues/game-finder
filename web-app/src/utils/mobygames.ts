@@ -4,7 +4,7 @@ const corsProxy = 'https://corsproxy.io/?';
 const apiKey = 'moby_sswl52j8U91ow1oqyNOppHee0XP';
 const apiUrl = 'https://api.mobygames.com/v1/games';
 
-export const getGameById = async (id: number) => {
+export const getGameById = async (id: string) => {
   const query = new URLSearchParams();
   query.append('api_key', apiKey);
 
@@ -26,7 +26,7 @@ export const loadGameList = async () => {
   }
 };
 
-export const getRandomGame = async () => {
+export const getRandomGame = () => {
   try {
     const gameList = localStorage.getItem('game_list');
     const { games } = JSON.parse(gameList);
@@ -34,7 +34,7 @@ export const getRandomGame = async () => {
     const randomIndex = Number((games.length * random).toFixed(0));
     const game = games[randomIndex];
 
-    console.log(game);
+    return String(game.i);
   } catch (err) {
     console.error(err);
   }

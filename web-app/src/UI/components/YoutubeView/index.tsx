@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Container, Content, Controls, Header, Title, VideoFrame } from './styled';
+import { Container, Controls, Header, VideoFrame } from './styled';
 import { searchVideos } from 'src/utils/youtube';
 import Icons from 'src/UI/base/Icons';
+import { Bar, Column, Title } from 'src/UI/base/styled';
+import If from 'src/UI/base/If';
 
 export const YoutubeView = (props: Props.YoutubeView) => {
   const { query } = props;
@@ -9,15 +11,20 @@ export const YoutubeView = (props: Props.YoutubeView) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    searchVideos(query + 'gameplay').then(setUrls);
-    setIndex(0);
-  }, []);
+    if (query) {
+      searchVideos(query + 'gameplay').then(setUrls);
+      setIndex(0);
+    }
+  }, [query]);
 
   return (
     <Container>
-      <Content>
+      <Column>
         <Header>
-          <Title>Youtube</Title>
+          <Title>
+            <Icons type="youtube" />
+            Youtube
+          </Title>
           <Controls>
             <Icons size={10} type="previous" onPress={() => index && setIndex(index - 1)} />
             <Icons
@@ -27,9 +34,11 @@ export const YoutubeView = (props: Props.YoutubeView) => {
             />
           </Controls>
         </Header>
-
-        <VideoFrame src={urls[index]} />
-      </Content>
+        <Bar />
+        <If check={!!query}>
+          <VideoFrame src={urls[index]} />
+        </If>
+      </Column>
     </Container>
   );
 };

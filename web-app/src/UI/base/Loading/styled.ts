@@ -17,6 +17,7 @@ export const FullScreen = styled.div(
     justify-content: center;
     background-color: #000b;
     backdrop-filter: blur(10px);
+    z-index: 2;
   `,
 );
 

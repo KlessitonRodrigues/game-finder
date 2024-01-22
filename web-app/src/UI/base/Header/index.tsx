@@ -1,14 +1,13 @@
-import { openPrintDialog } from 'src/utils/pdf';
-import { Container } from './styled';
-import Loading from '../Loading';
-import { useState } from 'react';
+import { Container, RandomGameBtn } from './styled';
+import useApp from 'src/hooks/useApp';
+import { getRandomGame } from 'src/utils/mobygames';
 
 const Header = () => {
-  const [loading, setLoading] = useState(false);
+  const { setGameId } = useApp();
 
   return (
     <Container>
-      <Loading type="fullScreen" show={loading} />
+      <RandomGameBtn onClick={() => setGameId(getRandomGame())}>Random Game</RandomGameBtn>
     </Container>
   );
 };

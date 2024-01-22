@@ -9,10 +9,10 @@ declare namespace Hooks {
   };
 
   type UseAppContext = {
-    firstRun: boolean;
-    bgImage: string;
-    setFirstRun: React.Dispatch<boolean>;
-    setBgImage: React.Dispatch<string>;
+    gameId: string;
+    gameName: string;
+    setGameId: React.Dispatch<string>;
+    setGameName: React.Dispatch<string>;
   };
 
   type UseScreenState = {

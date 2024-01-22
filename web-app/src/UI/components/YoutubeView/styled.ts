@@ -1,3 +1,4 @@
+import screenSizes from 'src/styles/lib/screenSizes';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div(
@@ -28,7 +29,6 @@ export const Header = styled.div(
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: ${theme.colors.white};
   `,
 );
 
@@ -45,20 +45,33 @@ export const Controls = styled.div(
   `,
 );
 
-export const Title = styled.h1(
-  ({ theme }) => css`
-    color: ${theme.colors.white};
-  `,
-);
-
 export const VideoFrame = styled.iframe(
   ({ theme }) => css`
     width: 100%;
-    height: 100%;
+    max-width: ${theme.size(300)};
+    height: ${theme.size(170)};
+    margin: auto;
+    margin-top: ${theme.size(4)};
     background-color: #000;
-    border-radius: ${theme.radius.medium};
+    border-radius: ${theme.radius.veryLarge};
     box-shadow: ${theme.shadow.high};
     border: none;
     outline: none;
+
+    @media (max-width: ${screenSizes.desktopL}px) {
+      height: ${theme.size(170)};
+    }
+
+    @media (max-width: ${screenSizes.laptopM}px) {
+      height: ${theme.size(150)};
+    }
+
+    @media (max-width: ${screenSizes.laptopS}px) {
+      height: ${theme.size(125)};
+    }
+
+    @media (max-width: ${screenSizes.tablet}px) {
+      height: ${theme.size(100)};
+    }
   `,
 );

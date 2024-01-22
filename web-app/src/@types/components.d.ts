@@ -10,7 +10,10 @@ declare namespace Props {
       | 'previous'
       | 'youtube'
       | 'star'
-      | 'starLine';
+      | 'starLine'
+      | 'category'
+      | 'platform'
+      | 'screenshot';
     style?: React.CSSProperties;
   };
 
@@ -34,5 +37,9 @@ declare namespace Props {
 
   type YoutubeView = {
     query: string;
+  };
+
+  type MobyGameView = {
+    game: Utils.GameInfo;
   };
 }
