@@ -18,11 +18,11 @@ const MobyGameView = (props: Props.MobyGameView) => {
   const { platforms, sample_screenshots, genres } = game;
 
   const Categories = useMemo(() => {
-    return genres?.map(category => <ListItem>{category.genre_name}</ListItem>);
+    return genres?.map(ct => <ListItem>{ct.genre_name}</ListItem>);
   }, [genres]);
 
   const Platforms = useMemo(() => {
-    return platforms?.map(category => <ListItem>{category.platform_name}</ListItem>);
+    return platforms?.map(pt => <ListItem>{pt.platform_name}</ListItem>);
   }, [platforms]);
 
   const Screenshots = useMemo(() => {

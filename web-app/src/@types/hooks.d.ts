@@ -10,9 +10,11 @@ declare namespace Hooks {
 
   type UseAppContext = {
     gameId: string;
-    gameName: string;
+    gameCategory: number;
+    gamePlatform: number;
     setGameId: React.Dispatch<string>;
-    setGameName: React.Dispatch<string>;
+    setGameCategory: React.Dispatch<number>;
+    setGamePlatform: React.Dispatch<number>;
   };
 
   type UseScreenState = {

@@ -2,14 +2,14 @@ import { Container, RandomGameBtn } from './styled';
 import useApp from 'src/hooks/useApp';
 import { getRandomGame } from 'src/utils/mobygames';
 
-// () => setGameId(getRandomGame())
-
 const Header = () => {
-  const { setGameId } = useApp();
+  const { gameCategory, gamePlatform, setGameId } = useApp();
 
   return (
     <Container>
-      <RandomGameBtn onClick={() => {}}>Random Game</RandomGameBtn>
+      <RandomGameBtn onClick={() => setGameId(getRandomGame(gameCategory, gamePlatform))}>
+        Random Game
+      </RandomGameBtn>
     </Container>
   );
 };

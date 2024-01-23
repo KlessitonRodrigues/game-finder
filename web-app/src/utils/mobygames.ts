@@ -26,13 +26,21 @@ export const loadGameList = async () => {
   }
 };
 
-export const getRandomGame = () => {
+export const getRandomGame = (category: number, platform: number) => {
   try {
     const gameList = localStorage.getItem('game_list');
     const { games } = JSON.parse(gameList);
+    const filteredGames = games.filter((game: any) => {
+      const { g, p } = game;
+      if (g?.includes(category)) {
+        if (p?.includes(platform)) return true;
+      }
+      return false;
+    });
+
     const random = Number(Math.random().toFixed(2));
-    const randomIndex = Number((games.length * random).toFixed(0));
-    const game = games[randomIndex];
+    const randomIndex = Number((filteredGames.length * random).toFixed(0));
+    const game = filteredGames[randomIndex];
 
     return String(game.i);
   } catch (err) {

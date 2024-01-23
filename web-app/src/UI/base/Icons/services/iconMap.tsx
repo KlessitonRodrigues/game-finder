@@ -1,8 +1,8 @@
 import {
-  RiCamera3Line,
   RiExpandUpDownFill,
   RiFilePdf2Fill,
   RiFunctionLine,
+  RiGalleryLine,
   RiGameLine,
   RiLoader5Line,
   RiSkipLeftLine,
@@ -23,5 +23,5 @@ export const iconMap: Record<Props.Icons['type'], React.ReactElement> = {
   starLine: <RiStarLine />,
   category: <RiFunctionLine />,
   platform: <RiGameLine />,
-  screenshot: <RiCamera3Line />,
+  screenshot: <RiGalleryLine />,
 };

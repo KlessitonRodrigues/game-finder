@@ -4,13 +4,16 @@ const AppContext = createContext<Hooks.UseAppContext>(null);
 
 export const AppProvider = (props: PropsWithChildren) => {
   const [gameId, setGameId] = useState('');
-  const [gameName, setGameName] = useState('');
+  const [gameCategory, setGameCategory] = useState(0);
+  const [gamePlatform, setGamePlatform] = useState(0);
 
   const context: Hooks.UseAppContext = {
     gameId,
-    gameName,
+    gameCategory,
+    gamePlatform,
     setGameId,
-    setGameName,
+    setGameCategory,
+    setGamePlatform,
   };
 
   const value = useMemo(() => context, [JSON.stringify(context)]);
