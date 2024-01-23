@@ -7,6 +7,7 @@ import { YoutubeView } from 'src/UI/components/YoutubeView';
 import Header from 'src/UI/base/Header';
 import useApp from 'src/hooks/useApp';
 import { gameInfo } from 'src/utils/test';
+import { GameFilter } from 'src/UI/components/GameFilter';
 
 const HomePage = () => {
   const { gameId } = useApp();
@@ -24,6 +25,7 @@ const HomePage = () => {
   return (
     <PageContainer>
       <Header />
+      <GameFilter />
       <MobyGameView game={game} />
       <YoutubeView query={game.title} />
       <Background />

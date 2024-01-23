@@ -39,3 +39,13 @@ export const getRandomGame = () => {
     console.error(err);
   }
 };
+
+export const getGameFilters = () => {
+  try {
+    const gameList = localStorage.getItem('game_list');
+    const { categories, platforms } = JSON.parse(gameList);
+    return { categories, platforms };
+  } catch (err) {
+    console.error(err);
+  }
+};
