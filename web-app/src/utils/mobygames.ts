@@ -20,7 +20,9 @@ export const getLocalGameById = async (id: number) => {
 
 export const loadGameList = async () => {
   try {
-    gameData = await (await fetch('/assets/json/games.json')).json();
+    gameData = await (
+      await fetch('https://klessitonrodrigues.github.io/game-finder/assets/json/games.json')
+    ).json();
     const { categories, platforms } = gameData;
     return { categories, platforms };
   } catch (err) {

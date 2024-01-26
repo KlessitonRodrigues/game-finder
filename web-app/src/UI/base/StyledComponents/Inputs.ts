@@ -25,7 +25,7 @@ export const InputTitle = styled.div(
 export const Input = styled.input(
   ({ theme }) => css`
     width: 100%;
-    padding-left: ${theme.size(4)};
+    padding-left: ${theme.size(2)};
     padding-top: ${theme.size(0.5)};
     font-size: ${theme.fontSize.body};
     font-weight: bold;

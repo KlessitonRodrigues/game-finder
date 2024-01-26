@@ -22,7 +22,7 @@ export const Select = styled.select(
     color: ${theme.colors.text1};
     font-family: sans-serif;
     font-size: ${theme.fontSize.body};
-    padding-left: ${theme.size(4)};
+    padding-left: ${theme.size(2)};
     padding-top: ${theme.size(0.5)};
 
     &::-webkit-scrollbar {
