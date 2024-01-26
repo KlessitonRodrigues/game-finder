@@ -1,33 +1,46 @@
-import PageContainer from 'src/UI/base/PageContainer';
-import { Background } from './styled';
 import { useEffect, useState } from 'react';
-import { getGameById, loadGameList } from 'src/utils/mobygames';
+
+import Header from 'src/UI/base/Header';
+import If from 'src/UI/base/If';
+import Loading from 'src/UI/base/Loading';
+import PageContainer from 'src/UI/base/PageContainer';
+import { GameFilter } from 'src/UI/components/GameFilter';
 import MobyGameView from 'src/UI/components/MobyGameView';
 import { YoutubeView } from 'src/UI/components/YoutubeView';
-import Header from 'src/UI/base/Header';
 import useApp from 'src/hooks/useApp';
-import { gameInfo } from 'src/utils/test';
-import { GameFilter } from 'src/UI/components/GameFilter';
+import { getLocalGameById, loadGameList } from 'src/utils/mobygames';
+
+import { Background } from './styled';
 
 const HomePage = () => {
   const { gameId } = useApp();
-  // @ts-ignore
-  const [game, setGame] = useState<Utils.GameInfo>(gameInfo);
+  const [isLoading, setloading] = useState(false);
+  const [game, setGame] = useState<Utils.GameInfo>();
 
   useEffect(() => {
-    loadGameList();
+    const load = async () => {
+      setloading(true);
+      await loadGameList();
+    };
+
+    load().finally(() => setloading(false));
   }, []);
 
   useEffect(() => {
-    getGameById(gameId).then(data => data.title && setGame(data));
+    getLocalGameById(Number(gameId)).then(data => data.n && setGame(data));
   }, [gameId]);
 
   return (
     <PageContainer>
       <Header />
       <GameFilter />
-      <MobyGameView game={game} />
-      <YoutubeView query={game.title} />
+      <If check={!!game}>
+        <>
+          <MobyGameView game={game} />
+          <YoutubeView query={game?.n} />
+        </>
+      </If>
+      <Loading type="fullScreen" show={isLoading} title="Loading Game List" description="loading" />
       <Background />
     </PageContainer>
   );

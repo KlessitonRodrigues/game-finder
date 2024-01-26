@@ -1,5 +1,6 @@
-import screenSizes from 'src/styles/lib/screenSizes';
 import styled, { css } from 'styled-components';
+
+import screenSizes from 'src/styles/lib/screenSizes';
 
 export const Container = styled.div(
   ({ theme }) => css`

@@ -17,14 +17,10 @@ declare namespace Hooks {
     setGamePlatform: React.Dispatch<number>;
   };
 
-  type UseScreenState = {
-    active: boolean;
-    focus: number;
-    option: number;
-    loading: boolean;
-    setActive: React.Dispatch<boolean>;
-    setFocus: React.Dispatch<number>;
-    setOption: React.Dispatch<number>;
-    setLoading: React.Dispatch<boolean>;
+  type UseGameDataContext = {
+    categories: Utils.GameData['categories'];
+    platforms: Utils.GameData['platforms'];
+    setCategories: React.Dispatch<Utils.GameData['categories']>;
+    setPlatforms: React.Dispatch<Utils.GameData['platforms']>;
   };
 }

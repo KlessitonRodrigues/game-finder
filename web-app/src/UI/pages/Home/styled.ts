@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import purpleBg from 'src/UI/assets/jpg/purple_bg_3.jpg';
 
 export const Background = styled.div(

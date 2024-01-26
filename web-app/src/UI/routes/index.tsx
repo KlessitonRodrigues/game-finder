@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
 import useRoutes from 'src/hooks/useRoutes';
 import GlobalCSS from 'src/styles/globalCSS';
 import { defaultTheme, defaultThemeDark } from 'src/styles/theme';
-import { ThemeProvider } from 'styled-components';
+
 import HomePage from '../pages/Home';
 
 const Router = () => {

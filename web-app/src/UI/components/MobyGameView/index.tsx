@@ -1,42 +1,49 @@
+import { useMemo } from 'react';
+
+import Icons from 'src/UI/base/Icons';
+import { Column, Columns } from 'src/UI/base/StyledComponents/Containers';
+import { List, ListItem } from 'src/UI/base/StyledComponents/Lists';
+import { Bar, Title } from 'src/UI/base/StyledComponents/Titles';
+import useGameData from 'src/hooks/useGameData';
+
 import {
   Container,
   Cover,
   Description,
   MobyLink,
   MobyScore,
-  Year,
-  ScreenShots,
   ScreenShot,
+  ScreenShots,
+  Year,
 } from './styled';
-
-import { Column, Columns, Bar, List, ListItem, Title } from 'src/UI/base/styled';
-import Icons from 'src/UI/base/Icons';
-import { useMemo } from 'react';
 
 const MobyGameView = (props: Props.MobyGameView) => {
   const { game } = props;
-  const { platforms, sample_screenshots, genres } = game;
+  const { categories, platforms } = useGameData();
 
   const Categories = useMemo(() => {
-    return genres?.map(ct => <ListItem>{ct.genre_name}</ListItem>);
-  }, [genres]);
+    return game.g?.map(index => {
+      const { t, n } = JSON.parse(categories[index]);
+      return <ListItem>{`${t}, ${n}`}</ListItem>;
+    });
+  }, [game.g]);
 
   const Platforms = useMemo(() => {
-    return platforms?.map(pt => <ListItem>{pt.platform_name}</ListItem>);
-  }, [platforms]);
+    return game.p?.map(index => <ListItem>{platforms[index]}</ListItem>);
+  }, [game.p]);
 
   const Screenshots = useMemo(() => {
-    return sample_screenshots?.map(ss => <ScreenShot src={ss.image} />);
-  }, [sample_screenshots]);
+    return game.s?.map(url => <ScreenShot src={url} />);
+  }, [game.s]);
 
   return (
     <Container>
       <Columns>
         <Column>
-          <Cover src={game?.sample_cover?.image} />
+          <Cover src={game?.c} />
         </Column>
         <Column>
-          <Title>{game?.title}</Title>
+          <Title>{game?.n}</Title>
           <Year>2024</Year>
           <MobyScore>
             <Icons type="star" />
@@ -45,9 +52,9 @@ const MobyGameView = (props: Props.MobyGameView) => {
             <Icons type="starLine" />
             <Icons type="starLine" />
           </MobyScore>
-          <Description dangerouslySetInnerHTML={{ __html: game?.description }} />
+          <Description dangerouslySetInnerHTML={{ __html: game?.d }} />
 
-          <MobyLink href={game?.moby_url}>MobyGames</MobyLink>
+          <MobyLink href={game?.l}>MobyGames</MobyLink>
         </Column>
       </Columns>
 

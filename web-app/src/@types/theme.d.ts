@@ -44,9 +44,6 @@ declare namespace Styles {
       low: string;
       medium: string;
       high: string;
-      mediumGray: string;
-      mediumLeft: string;
-      lowRight: string;
     };
   };
 }

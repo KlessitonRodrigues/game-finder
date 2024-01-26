@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Container, Controls, Header, VideoFrame } from './styled';
-import { searchVideos } from 'src/utils/youtube';
+
 import Icons from 'src/UI/base/Icons';
-import { Bar, Column, Title } from 'src/UI/base/styled';
 import If from 'src/UI/base/If';
+import { Column } from 'src/UI/base/StyledComponents/Containers';
+import { Bar, Title } from 'src/UI/base/StyledComponents/Titles';
+import { searchVideos } from 'src/utils/youtube';
+
+import { Container, Controls, Header, VideoFrame } from './styled';
 
 export const YoutubeView = (props: Props.YoutubeView) => {
   const { query } = props;

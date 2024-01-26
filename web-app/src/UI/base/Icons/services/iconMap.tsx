@@ -1,4 +1,6 @@
 import {
+  RiCalendar2Line,
+  RiCalendarLine,
   RiExpandUpDownFill,
   RiFilePdf2Fill,
   RiFunctionLine,
@@ -24,4 +26,5 @@ export const iconMap: Record<Props.Icons['type'], React.ReactElement> = {
   category: <RiFunctionLine />,
   platform: <RiGameLine />,
   screenshot: <RiGalleryLine />,
+  date: <RiCalendar2Line />,
 };

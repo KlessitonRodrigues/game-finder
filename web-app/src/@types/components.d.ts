@@ -13,7 +13,8 @@ declare namespace Props {
       | 'starLine'
       | 'category'
       | 'platform'
-      | 'screenshot';
+      | 'screenshot'
+      | 'date';
     style?: React.CSSProperties;
   };
 

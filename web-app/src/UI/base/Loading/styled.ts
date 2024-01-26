@@ -22,29 +22,30 @@ export const FullScreen = styled.div(
 );
 
 export const Spinner = styled.div(
-  props => css`
+  ({ theme }) => css`
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: ${props.theme.size(8)};
+    margin-bottom: ${theme.size(8)};
     animation: ${animations.spinning} 0.8s infinite linear;
+    color: ${theme.colors.white};
   `,
 );
 
-export const Title = styled.p(
-  props => css`
-    font-size: ${props.theme.fontSize.label};
-    margin-bottom: ${props.theme.size(2)};
+export const Title = styled.h1(
+  ({ theme }) => css`
+    font-size: ${theme.fontSize.label};
+    margin-bottom: ${theme.size(2)};
     animation: ${animations.slideUpLarge} 0.5s ease-out;
+    color: ${theme.colors.white};
   `,
 );
 
 export const Description = styled.p(
-  props => css`
-    color: ${props.theme.colors.text4};
-    font-size: ${props.theme.fontSize.verySmall};
+  ({ theme }) => css`
+    font-size: ${theme.fontSize.verySmall};
     animation: ${animations.slideUpLarge} 0.5s ease-out;
+    color: ${theme.colors.white};
   `,
 );
