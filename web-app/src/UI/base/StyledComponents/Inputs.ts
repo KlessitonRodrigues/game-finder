@@ -6,13 +6,17 @@ export const InputBox = styled.label(
     align-items: center;
     gap: ${theme.size(2)};
     width: 100%;
-    padding: ${theme.size(2)};
+    padding: ${theme.size(2)} ${theme.size(3)};
     font-weight: bold;
     font-size: ${theme.fontSize.label};
     border-radius: ${theme.radius.medium};
     background-color: ${theme.colors.bg3};
     color: ${theme.colors.text2};
     box-shadow: ${theme.shadow.medium};
+
+    &:hover {
+      background-color: ${theme.colors.bg2};
+    }
   `,
 );
 

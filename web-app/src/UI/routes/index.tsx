@@ -5,7 +5,7 @@ import useRoutes from 'src/hooks/useRoutes';
 import GlobalCSS from 'src/styles/globalCSS';
 import { defaultTheme, defaultThemeDark } from 'src/styles/theme';
 
-import HomePage from '../pages/Home';
+import GameViewPage from 'UI/pages/GameView';
 
 const Router = () => {
   const routes = useRoutes();
@@ -13,8 +13,8 @@ const Router = () => {
   return (
     <ThemeProvider theme={defaultThemeDark}>
       <GlobalCSS />
-      <Routes location={routes}>
-        <Route path="/*" element={<HomePage />} />
+      <Routes location={window.location}>
+        <Route path="/*" element={<GameViewPage />} />
       </Routes>
     </ThemeProvider>
   );

@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 
-import Icons from 'src/UI/base/Icons';
-import { Column, Columns } from 'src/UI/base/StyledComponents/Containers';
-import { List, ListItem } from 'src/UI/base/StyledComponents/Lists';
-import { Bar, Title } from 'src/UI/base/StyledComponents/Titles';
 import useGameData from 'src/hooks/useGameData';
+
+import Icons from 'UI/base/Icons';
+import { Column, Columns } from 'UI/base/StyledComponents/Containers';
+import { List, ListItem } from 'UI/base/StyledComponents/Lists';
+import { Bar, Title } from 'UI/base/StyledComponents/Titles';
 
 import {
   Container,

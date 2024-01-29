@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = () => {
-  const isProduction = process.env.NODE_ENV == 'production';
-
   const config = {
     entry: './src/index.tsx',
     output: {
@@ -15,7 +13,9 @@ module.exports = () => {
     devServer: {
       hot: true,
       open: false,
-      host: 'localhost',
+      port: 8080,
+      allowedHosts: 'all',
+      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -66,7 +66,7 @@ module.exports = () => {
     },
   };
 
-  if (isProduction) config.mode = 'production';
+  if (process.env.NODE_ENV == 'production') config.mode = 'production';
   else config.mode = 'development';
   return config;
 };

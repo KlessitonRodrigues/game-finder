@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import Icons from 'src/UI/base/Icons';
-import If from 'src/UI/base/If';
-import { Column } from 'src/UI/base/StyledComponents/Containers';
-import { Bar, Title } from 'src/UI/base/StyledComponents/Titles';
 import { searchVideos } from 'src/utils/youtube';
+
+import Icons from 'UI/base/Icons';
+import If from 'UI/base/If';
+import { Column } from 'UI/base/StyledComponents/Containers';
+import { Bar, Title } from 'UI/base/StyledComponents/Titles';
 
 import { Container, Controls, Header, VideoFrame } from './styled';
 

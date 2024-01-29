@@ -1,16 +1,19 @@
 import { useMemo, useState } from 'react';
 
-import Icons from 'src/UI/base/Icons';
-import { Row } from 'src/UI/base/StyledComponents/Containers';
-import { Input, InputBox, InputTitle } from 'src/UI/base/StyledComponents/Inputs';
-import { Select, SelectBox, SelectItem, SelectTitle } from 'src/UI/base/StyledComponents/Select';
+import { DefaultButton } from 'src/UI/base/StyledComponents/buttons';
 import useApp from 'src/hooks/useApp';
 import useGameData from 'src/hooks/useGameData';
+import { getRandomGame } from 'src/utils/mobygames';
+
+import Icons from 'UI/base/Icons';
+import { Row } from 'UI/base/StyledComponents/Containers';
+import { Input, InputBox, InputTitle } from 'UI/base/StyledComponents/Inputs';
+import { Select, SelectBox, SelectItem, SelectTitle } from 'UI/base/StyledComponents/Select';
 
 import { Container } from './styled';
 
 export const GameFilter = () => {
-  const { gameCategory, gamePlatform, setGameCategory, setGamePlatform } = useApp();
+  const { gameCategory, gamePlatform, setGameCategory, setGamePlatform, setGameId } = useApp();
   const { categories, platforms } = useGameData();
   const [categoryType, setCategoryType] = useState('');
 
@@ -43,30 +46,6 @@ export const GameFilter = () => {
     <Container>
       <Row>
         <SelectBox>
-          <Icons type="platform" />
-          <SelectTitle>Platform</SelectTitle>
-          <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
-            {PlatformItems}
-          </Select>
-        </SelectBox>
-      </Row>
-      <Row>
-        <InputBox>
-          <Icons type="date" />
-          <InputTitle>From Year</InputTitle>
-
-          <Input type="number" value="2023" />
-        </InputBox>
-
-        <InputBox>
-          <Icons type="date" />
-          <InputTitle>To Year</InputTitle>
-          <Input type="number" value="2023" />
-        </InputBox>
-      </Row>
-
-      <Row>
-        <SelectBox>
           <Icons type="category" />
           <SelectTitle>Category Type</SelectTitle>
           <Select value={categoryType} onChange={ev => setCategoryType(ev.target.value)}>
@@ -82,6 +61,44 @@ export const GameFilter = () => {
           </Select>
         </SelectBox>
       </Row>
+
+      <Row>
+        <InputBox>
+          <Icons type="date" />
+          <InputTitle>From Year</InputTitle>
+          <Input type="number" value="2023" />
+        </InputBox>
+
+        <InputBox>
+          <Icons type="date" />
+          <InputTitle>To Year</InputTitle>
+          <Input type="number" value="2023" />
+        </InputBox>
+      </Row>
+
+      <Row>
+        <SelectBox>
+          <Icons type="platform" />
+          <SelectTitle>Platform</SelectTitle>
+          <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
+            {PlatformItems}
+          </Select>
+        </SelectBox>
+
+        <SelectBox>
+          <Icons type="list" />
+          <SelectTitle>List Format</SelectTitle>
+          <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
+            <SelectItem>Ordered</SelectItem>
+            <SelectItem>Random</SelectItem>
+          </Select>
+        </SelectBox>
+      </Row>
+
+      <DefaultButton onClick={() => setGameId(getRandomGame(gameCategory, gamePlatform))}>
+        <Icons type="search" />
+        Find Games
+      </DefaultButton>
     </Container>
   );
 };

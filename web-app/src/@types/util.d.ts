@@ -1,5 +1,5 @@
 declare namespace Utils {
-  type Paths = '/home';
+  type Paths = '/home' | '/game-view';
 
   type LangJson = Record<string, string>;
 

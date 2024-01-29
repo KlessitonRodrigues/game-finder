@@ -1,7 +1,8 @@
-import ENJSON from 'src/UI/assets/lang/en.json';
-import ESJSON from 'src/UI/assets/lang/es.json';
-import PTJSON from 'src/UI/assets/lang/pt.json';
 import { getLangQuery } from 'src/utils/url';
+
+import ENJSON from 'UI/assets/lang/en.json';
+import ESJSON from 'UI/assets/lang/es.json';
+import PTJSON from 'UI/assets/lang/pt.json';
 
 const lang = getLangQuery();
 const ENLang = ENJSON as Utils.LangJson;

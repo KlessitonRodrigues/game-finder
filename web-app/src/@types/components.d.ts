@@ -14,7 +14,9 @@ declare namespace Props {
       | 'category'
       | 'platform'
       | 'screenshot'
-      | 'date';
+      | 'date'
+      | 'list'
+      | 'search';
     style?: React.CSSProperties;
   };
 

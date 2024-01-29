@@ -3,7 +3,7 @@ import { PropsWithChildren, createContext, useContext, useMemo, useState } from 
 const AppContext = createContext<Hooks.UseRoutesContext>(null);
 
 export const RoutesProvider = (props: PropsWithChildren) => {
-  const [pathname, setPath] = useState<Utils.Paths>('/home');
+  const [pathname, setPath] = useState<Utils.Paths>('/game-view');
   const [lang, setLang] = useState('');
 
   const context: Hooks.UseRoutesContext = {
