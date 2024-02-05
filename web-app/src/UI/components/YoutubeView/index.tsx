@@ -30,11 +30,11 @@ export const YoutubeView = (props: Props.YoutubeView) => {
             Youtube
           </Title>
           <Controls>
-            <Icons size={10} type="previous" onPress={() => index && setIndex(index - 1)} />
+            <Icons size={10} type="previous" onClick={() => index && setIndex(index - 1)} />
             <Icons
               size={10}
               type="next"
-              onPress={() => index < urls.length - 1 && setIndex(index + 1)}
+              onClick={() => index < urls.length - 1 && setIndex(index + 1)}
             />
           </Controls>
         </Header>

@@ -2,14 +2,16 @@ import 'src/UI/assets/json/games.json';
 
 const corsProxy = 'https://corsproxy.io/?';
 const apiKey = 'moby_sswl52j8U91ow1oqyNOppHee0XP';
-const apiUrl = 'https://api.mobygames.com/v1/games';
-let gameData: Utils.GameData = { games: [], categories: [], platforms: [] };
+const apiURL = 'https://api.mobygames.com/v1/games';
+const dataURL = 'https://klessitonrodrigues.github.io/game-finder/assets/json/games.json';
+
+let gameData: Utils.GameData = { games: [], filtered: [], categories: [], platforms: [] };
 
 export const getGameById = async (id: string) => {
   const query = new URLSearchParams();
   query.append('api_key', apiKey);
 
-  const queryUrl = `${apiUrl}/${id}?${query.toString()}`;
+  const queryUrl = `${apiURL}/${id}?${query.toString()}`;
   const proxyUrl = corsProxy + encodeURIComponent(queryUrl);
   return (await fetch(proxyUrl)).json();
 };
@@ -20,9 +22,7 @@ export const getLocalGameById = async (id: number) => {
 
 export const loadGameList = async () => {
   try {
-    gameData = await (
-      await fetch('https://klessitonrodrigues.github.io/game-finder/assets/json/games.json')
-    ).json();
+    gameData = await (await fetch(dataURL)).json();
     const { categories, platforms } = gameData;
     return { categories, platforms };
   } catch (err) {
@@ -30,22 +30,26 @@ export const loadGameList = async () => {
   }
 };
 
-export const getRandomGame = (category: number, platform: number) => {
+export const getPageItems = (page: number, items: number) => {
+  if (page < 0) return [];
+  const index = page * items;
+  return gameData.filtered?.slice(index, index + items);
+};
+
+export const getRandomGames = (category: number, platform: number) => {
   try {
     const { games } = gameData;
-    const filteredGames = games.filter((game: any) => {
-      const { g, p } = game;
-      if (g?.includes(category)) {
-        if (p?.includes(platform)) return true;
-      }
-      return false;
-    });
+    const filteredGames = games
+      .filter((game: any) => {
+        const { g, p } = game;
+        if (g?.includes(category)) {
+          if (p?.includes(platform)) return true;
+        }
+        return false;
+      })
+      .sort((a, b) => Math.random() - 0.5);
 
-    const random = Number(Math.random().toFixed(2));
-    const randomIndex = Number((filteredGames.length * random).toFixed(0));
-    const game = filteredGames[randomIndex];
-
-    return String(game.i);
+    gameData.filtered = filteredGames;
   } catch (err) {
     console.error(err);
   }

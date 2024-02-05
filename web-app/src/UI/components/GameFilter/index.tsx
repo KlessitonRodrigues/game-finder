@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { DefaultButton } from 'src/UI/base/StyledComponents/buttons';
 import useApp from 'src/hooks/useApp';
 import useGameData from 'src/hooks/useGameData';
-import { getRandomGame } from 'src/utils/mobygames';
+import { getRandomGames } from 'src/utils/mobygames';
 
 import Icons from 'UI/base/Icons';
 import { Row } from 'UI/base/StyledComponents/Containers';
@@ -13,8 +13,8 @@ import { Select, SelectBox, SelectItem, SelectTitle } from 'UI/base/StyledCompon
 import { Container } from './styled';
 
 export const GameFilter = () => {
-  const { gameCategory, gamePlatform, setGameCategory, setGamePlatform, setGameId } = useApp();
-  const { categories, platforms } = useGameData();
+  const { gameCategory, gamePlatform, setGameCategory, setGamePlatform } = useApp();
+  const { categories, platforms, setLastUpdate } = useGameData();
   const [categoryType, setCategoryType] = useState('');
 
   const PlatformItems = useMemo(() => {
@@ -41,6 +41,11 @@ export const GameFilter = () => {
   const CategoriesNames = useMemo(() => {
     return categoryItems.items.map(ct => <SelectItem value={ct.i}>{ct.name}</SelectItem>);
   }, [categories, categoryType]);
+
+  const onFiltering = () => {
+    getRandomGames(gameCategory, gamePlatform);
+    setLastUpdate(Date.now());
+  };
 
   return (
     <Container>
@@ -95,7 +100,7 @@ export const GameFilter = () => {
         </SelectBox>
       </Row>
 
-      <DefaultButton onClick={() => setGameId(getRandomGame(gameCategory, gamePlatform))}>
+      <DefaultButton onClick={onFiltering}>
         <Icons type="search" />
         Find Games
       </DefaultButton>

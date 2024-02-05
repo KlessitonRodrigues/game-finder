@@ -4,7 +4,7 @@ import { materialColors as mc } from 'src/styles/lib/palettes';
 
 import purpleBg from 'UI/assets/jpg/purple.jpg';
 
-export const Background = styled.div(
+export const ImageBg = styled.div(
   () => css`
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@ export const GradidentBg = styled.div(
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(35deg, ${mc.blue['900']}, ${mc.purple['400']});
+    background: linear-gradient(35deg, ${mc.lightBlue['300']}, ${mc.purple['300']});
     background-size: 100% 100%;
     z-index: -1;
   `,

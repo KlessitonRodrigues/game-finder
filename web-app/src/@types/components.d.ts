@@ -1,7 +1,7 @@
 declare namespace Props {
   type Icons = {
     size?: number;
-    onPress?: () => void;
+    onClick?: () => void;
     type:
       | 'download'
       | 'selector'
@@ -16,7 +16,8 @@ declare namespace Props {
       | 'screenshot'
       | 'date'
       | 'list'
-      | 'search';
+      | 'search'
+      | 'close';
     style?: React.CSSProperties;
   };
 
@@ -44,5 +45,9 @@ declare namespace Props {
 
   type MobyGameView = {
     game: Utils.GameInfo;
+  };
+
+  type GameList = {
+    onSelect: (game: Utils.GameInfo) => void;
   };
 }

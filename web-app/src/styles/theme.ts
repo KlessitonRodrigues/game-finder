@@ -34,7 +34,7 @@ export const defaultTheme: Styles.Theme = {
     verySmall: '0.85rem',
   },
   shadow: {
-    low: '2px 2px 3x 1px #0004',
+    low: '1px 1px 3px 1px #0004',
     medium: '2px 2px 3px 1px #0006',
     high: '2px 2px 3px 1px #0008',
   },

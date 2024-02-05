@@ -6,7 +6,7 @@ export const Columns = styled.div(
   ({ theme }) => css`
     width: 100%;
     display: flex;
-    padding: ${theme.size(4)};
+    padding: 0 ${theme.size(4)} ${theme.size(4)};
     gap: ${theme.size(4)};
 
     @media (max-width: ${screenSizes.laptopM}px) {

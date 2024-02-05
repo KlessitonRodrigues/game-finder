@@ -17,3 +17,8 @@ export const BgAnimation2 = keyframes`
     50% {background-color: ${mc.green['900']}}
     100% {background-color: ${mc.red['900']}}
 `;
+
+export const slideUp = keyframes`
+    from {transform: translateY(6rem); opacity: 0} 
+    to {opacity: 1}
+`;

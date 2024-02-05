@@ -16,6 +16,7 @@ declare namespace Utils {
 
   type GameData = {
     games: GameInfo[];
+    filtered: GameInfo[];
     categories: string[];
     platforms: string[];
   };

@@ -24,6 +24,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
 
   const Categories = useMemo(() => {
     return game.g?.map(index => {
+      if (!categories[index]) return null;
       const { t, n } = JSON.parse(categories[index]);
       return <ListItem>{`${t}, ${n}`}</ListItem>;
     });

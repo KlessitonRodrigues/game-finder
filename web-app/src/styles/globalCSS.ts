@@ -75,10 +75,10 @@ export default createGlobalStyle(
       width: ${theme.size(2)};
     }
     div::-webkit-scrollbar-track {
-      background: #0000;
+      background: #0004;
     }
     div::-webkit-scrollbar-thumb {
-      background: ${theme.colors.gray};
+      background: ${theme.colors.white};
       border-radius: 2px;
     }
     div::-webkit-scrollbar-thumb:hover {

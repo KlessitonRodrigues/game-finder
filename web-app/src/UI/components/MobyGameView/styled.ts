@@ -43,7 +43,7 @@ export const ScreenShots = styled.div(
 export const ScreenShot = styled.img(
   ({ theme }) => css`
     width: 100%;
-    max-width: ${theme.size(180)};
+    max-width: ${theme.size(160)};
     border-radius: ${theme.radius.large};
     border: 2px solid ${theme.colors.white + '44'};
 

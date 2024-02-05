@@ -11,7 +11,7 @@ const Router = () => {
   const routes = useRoutes();
 
   return (
-    <ThemeProvider theme={defaultThemeDark}>
+    <ThemeProvider theme={defaultTheme}>
       <GlobalCSS />
       <Routes location={window.location}>
         <Route path="/*" element={<GameViewPage />} />
