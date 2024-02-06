@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { materialColors as mc } from 'src/styles/lib/palettes';
+import { materialColors as mc } from 'src/styles/palettes';
 
-import purpleBg from 'UI/assets/jpg/purple.jpg';
+import bgImage1 from 'UI/assets/jpg/bg_8.jpg';
 
 export const ImageBg = styled.div(
   () => css`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(${purpleBg});
+    background-image: url(${bgImage1});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

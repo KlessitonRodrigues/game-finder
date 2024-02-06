@@ -1,6 +1,8 @@
 import { createGlobalStyle, css } from 'styled-components';
 
-import '../UI/assets/fonts/quicksand.ttf';
+import 'src/UI/assets/fonts/quicksand.ttf';
+
+import { gradients } from './tools';
 
 export default createGlobalStyle(
   ({ theme }) => css`
@@ -15,17 +17,18 @@ export default createGlobalStyle(
     }
     body {
       font-size: ${theme.fontSize.body};
-      height: 100vh;
-      width: 100vw;
-      max-height: 100vh;
+      width: 98vw;
       max-width: 100vw;
-      overflow: hidden;
+      // height: 100vh;
+      // max-height: 100vh;
+      // overflow-y: hidden;
     }
     html,
     body {
       font-family: 'Quicksand', sans-serif;
       color: ${theme.colors.text1};
       font-weight: 500;
+      background-image: ${gradients.white};
     }
     h1 {
       font-size: ${theme.fontSize.h1};
@@ -86,7 +89,6 @@ export default createGlobalStyle(
     }
     #root {
       width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
     }

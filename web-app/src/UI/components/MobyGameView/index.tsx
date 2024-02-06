@@ -5,7 +5,7 @@ import useGameData from 'src/hooks/useGameData';
 import Icons from 'UI/base/Icons';
 import { Column, Columns } from 'UI/base/StyledComponents/Containers';
 import { List, ListItem } from 'UI/base/StyledComponents/Lists';
-import { Bar, Title } from 'UI/base/StyledComponents/Titles';
+import { Title, TitleBar } from 'UI/base/StyledComponents/Titles';
 
 import {
   Container,
@@ -66,7 +66,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             <Icons type="category" />
             Categories
           </Title>
-          <Bar />
+          <TitleBar />
           <List>{Categories}</List>
         </Column>
         <Column>
@@ -74,7 +74,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             <Icons type="platform" />
             Platforms
           </Title>
-          <Bar />
+          <TitleBar />
           <List>{Platforms}</List>
         </Column>
       </Columns>
@@ -85,7 +85,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             <Icons type="screenshot" />
             Screenshots
           </Title>
-          <Bar />
+          <TitleBar />
           <ScreenShots>{Screenshots}</ScreenShots>
         </Column>
       </Columns>

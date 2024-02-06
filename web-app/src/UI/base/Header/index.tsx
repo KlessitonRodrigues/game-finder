@@ -1,11 +1,9 @@
 import useApp from 'src/hooks/useApp';
 
-import { Container, RandomGameBtn } from './styled';
+import { Container } from './styled';
 
 const Header = () => {
-  const { gameCategory, gamePlatform, setGameId } = useApp();
-
-  return <Container></Container>;
+  return <Container>Game Finder</Container>;
 };
 
 export default Header;

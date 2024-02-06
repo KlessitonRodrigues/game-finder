@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import Icons from 'src/UI/base/Icons';
+import If from 'src/UI/base/If';
+import { Column } from 'src/UI/base/StyledComponents/Containers';
+import { Title, TitleBar } from 'src/UI/base/StyledComponents/Titles';
 import useGameData from 'src/hooks/useGameData';
 import { getPageItems } from 'src/utils/mobygames';
 
@@ -16,7 +20,7 @@ const GameList = (props: Props.GameList) => {
     setList(getPageItems(page, 20));
   }, [lastUpdate]);
 
-  const CardItems = useMemo(() => {
+  const cardItems = useMemo(() => {
     return list.map(game => {
       return (
         <Card key={game.i} onClick={() => onSelect(game)}>
@@ -30,9 +34,18 @@ const GameList = (props: Props.GameList) => {
     });
   }, [list]);
 
+  if (!cardItems.length) return null;
+
   return (
     <Container>
-      <Cards>{CardItems}</Cards>
+      <Column>
+        <Title>
+          <Icons type="list" />
+          Game List
+        </Title>
+        <TitleBar />
+        <Cards>{cardItems}</Cards>
+      </Column>
     </Container>
   );
 };

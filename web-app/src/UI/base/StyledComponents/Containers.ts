@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import screenSizes from 'src/styles/lib/screenSizes';
+import { screenSize } from 'src/styles/tools';
 
 export const Columns = styled.div(
   ({ theme }) => css`
@@ -9,7 +9,7 @@ export const Columns = styled.div(
     padding: 0 ${theme.size(4)} ${theme.size(4)};
     gap: ${theme.size(4)};
 
-    @media (max-width: ${screenSizes.laptopM}px) {
+    @media (max-width: ${screenSize.laptopM}px) {
       flex-direction: column;
     }
   `,
@@ -20,14 +20,13 @@ export const Column = styled.div(
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: ${theme.size(2)};
+    gap: ${theme.size(4)};
     padding: ${theme.size(4)};
-    background-color: ${theme.colors.bg2};
+    background-color: ${theme.colors.bg1};
+    color: ${theme.colors.text2};
     backdrop-filter: blur(4px);
     border-radius: ${theme.radius.medium};
-    box-shadow: ${theme.shadow.high};
-    color: ${theme.colors.text2};
-    box-shadow: ${theme.shadow.high};
+    box-shadow: ${theme.shadow.low};
   `,
 );
 
@@ -38,7 +37,7 @@ export const Row = styled.div(
     gap: ${theme.size(4)};
     width: 100%;
 
-    @media (max-width: ${screenSizes.tablet}px) {
+    @media (max-width: ${screenSize.tablet}px) {
       width: 100%;
       flex-direction: column;
     }

@@ -1,4 +1,4 @@
-import { atlassianColors, materialColors } from './lib/palettes';
+import { atlassianColors, materialColors } from './palettes';
 
 export const defaultTheme: Styles.Theme = {
   size: (n: number) => `${(n * 0.2).toFixed(1)}rem`,
@@ -9,10 +9,10 @@ export const defaultTheme: Styles.Theme = {
     bg2: materialColors.grey['100'],
     bg3: materialColors.grey['200'],
     bg4: materialColors.grey['300'],
-    text1: materialColors.grey['900'],
-    text2: materialColors.grey['800'],
-    text3: materialColors.grey['700'],
-    text4: materialColors.grey['500'],
+    text1: materialColors.grey['800'],
+    text2: materialColors.grey['600'],
+    text3: materialColors.grey['500'],
+    text4: materialColors.grey['400'],
     gray: materialColors.grey['500'],
     yellow: atlassianColors.yellow['600'],
     red: atlassianColors.red['700'],
@@ -34,9 +34,9 @@ export const defaultTheme: Styles.Theme = {
     verySmall: '0.85rem',
   },
   shadow: {
-    low: '1px 1px 3px 1px #0004',
-    medium: '2px 2px 3px 1px #0006',
-    high: '2px 2px 3px 1px #0008',
+    low: '1px 1px 2px 1px #0004',
+    medium: '1px 1px 4px 2px #0006',
+    high: '1px 1px 4px 2px #0009',
   },
   radius: {
     verySmall: '0.2rem',
@@ -52,10 +52,10 @@ export const defaultThemeDark = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors,
-    bg1: materialColors.black,
-    bg2: materialColors.black + '88',
-    bg3: materialColors.black + '66',
-    bg4: materialColors.black + '44',
+    bg1: materialColors.black + 'EE',
+    bg2: materialColors.black + 'CC',
+    bg3: materialColors.black + 'AA',
+    bg4: materialColors.black + '88',
     text1: materialColors.grey['200'],
     text2: materialColors.grey['300'],
     text3: materialColors.grey['400'],

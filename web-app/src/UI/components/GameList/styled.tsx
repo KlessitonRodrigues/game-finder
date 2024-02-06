@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { slideUp } from 'src/UI/base/StyledComponents/keyframe';
+import { animations, screenSize } from 'src/styles/tools';
 
 export const Container = styled.div(
   ({ theme }) => css`
@@ -24,16 +24,19 @@ export const Card = styled.div(
     flex-direction: column;
     width: 100%;
     max-width: ${theme.size(70)};
-    border: 2px solid transparent;
-    border-radius: ${theme.radius.veryLarge};
+    border-radius: ${theme.radius.large};
+    box-shadow: ${theme.shadow.low};
     overflow: hidden;
     cursor: pointer;
-    transition: 0.3s;
-    animation: ${slideUp} 0.3s ease-out;
+    transition: 0.2s;
+    animation: ${animations.slideUp} 0.5s;
 
     &:hover {
-      border-color: ${theme.colors.bg2};
-      box-shadow: ${theme.shadow.low};
+      box-shadow: ${theme.shadow.medium};
+    }
+
+    @media (max-width: ${screenSize.tablet}px) {
+      max-width: unset;
     }
   `,
 );
@@ -46,6 +49,11 @@ export const CardImg = styled.img(
     max-height: ${theme.size(80)};
     background-color: ${theme.colors.bg2};
     border: none;
+
+    @media (max-width: ${screenSize.tablet}px) {
+      max-width: unset;
+      max-height: ${theme.size(120)};
+    }
   `,
 );
 

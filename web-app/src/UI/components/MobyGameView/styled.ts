@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import screenSizes from 'src/styles/lib/screenSizes';
+import { screenSize } from 'src/styles/tools';
 
 export const Container = styled.div(
   ({ theme }) => css`
@@ -47,7 +47,7 @@ export const ScreenShot = styled.img(
     border-radius: ${theme.radius.large};
     border: 2px solid ${theme.colors.white + '44'};
 
-    @media (max-width: ${screenSizes.laptopM}px) {
+    @media (max-width: ${screenSize.laptopM}px) {
       max-width: ${theme.size(220)};
     }
   `,

@@ -1,21 +1,29 @@
 import styled, { css } from 'styled-components';
 
+import { gradients } from 'src/styles/tools';
+
 export const DefaultButton = styled.ol(
   ({ theme }) => css`
     display: flex;
     align-items: center;
     gap: ${theme.size(3)};
     padding: ${theme.size(2)} ${theme.size(3)};
-    background-color: ${theme.colors.bg3};
+    border: 1px solid transparent;
     border-radius: ${theme.radius.large};
-    color: ${theme.colors.text1};
-    box-shadow: ${theme.shadow.medium};
+    background-image: ${gradients.blue};
+    color: ${theme.colors.white};
+    box-shadow: ${theme.shadow.low};
     font-size: ${theme.fontSize.label};
     font-weight: bold;
     cursor: pointer;
+    transition: 0.1s;
 
     &:hover {
-      background-color: ${theme.colors.bg2};
+      background-image: ${gradients.darkBlue};
+    }
+
+    .icon {
+      color: ${theme.colors.white};
     }
   `,
 );

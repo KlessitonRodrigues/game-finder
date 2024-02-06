@@ -8,8 +8,9 @@ export const Title = styled.h2(
   `,
 );
 
-export const Bar = styled.hr(
+export const TitleBar = styled.hr(
   ({ theme }) => css`
     border-color: ${theme.colors.text1 + '44'};
+    margin: ${theme.size(1)} 0;
   `,
 );

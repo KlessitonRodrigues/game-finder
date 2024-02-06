@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import screenSizes from 'src/styles/lib/screenSizes';
+import { screenSize } from 'src/styles/tools';
 
 export const Container = styled.div(
   ({ theme }) => css`
@@ -59,19 +59,19 @@ export const VideoFrame = styled.iframe(
     border: none;
     outline: none;
 
-    @media (max-width: ${screenSizes.desktopL}px) {
+    @media (max-width: ${screenSize.desktopL}px) {
       height: ${theme.size(170)};
     }
 
-    @media (max-width: ${screenSizes.laptopM}px) {
+    @media (max-width: ${screenSize.laptopM}px) {
       height: ${theme.size(150)};
     }
 
-    @media (max-width: ${screenSizes.laptopS}px) {
+    @media (max-width: ${screenSize.laptopS}px) {
       height: ${theme.size(125)};
     }
 
-    @media (max-width: ${screenSizes.tablet}px) {
+    @media (max-width: ${screenSize.tablet}px) {
       height: ${theme.size(100)};
     }
   `,

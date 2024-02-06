@@ -1,41 +1,45 @@
 import styled, { css } from 'styled-components';
 
-import { slideUp } from './keyframe';
+import { materialColors as mc } from 'src/styles/palettes';
+import { animations, cssSize, gradients } from 'src/styles/tools';
 
 export const Modal = styled.div<{ show: boolean }>(
   ({ show }) => css`
     display: ${show ? 'flex' : 'none'};
+    position: fixed;
+    top: 0;
+    left: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #0006;
+    animation: 0.5s ${animations.fadeIn} ease-out;
+    background-color: ${mc.grey['900'] + '99'};
     backdrop-filter: blur(12px);
   `,
 );
 
 export const ModalHeader = styled.div(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    max-width: ${theme.size(350)};
-    padding: ${theme.size(4)};
+    max-width: ${cssSize(350)};
+    padding: ${cssSize(4)};
+    background-image: ${gradients.blue};
     color: #fff;
   `,
 );
 
 export const ModalContent = styled.div(
-  ({ theme }) => css`
+  () => css`
     width: 100%;
     height: 100%;
-    max-width: ${theme.size(350)};
-    margin-bottom: ${theme.size(10)};
+    max-width: ${cssSize(350)};
+    padding: ${cssSize(6)} 0 ${cssSize(30)};
     overflow: auto;
-    animation: 0.5s ${slideUp} ease;
+    animation: 0.5s ${animations.slideUp} ease-out;
   `,
 );

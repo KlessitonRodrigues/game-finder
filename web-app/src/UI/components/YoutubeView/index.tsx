@@ -5,7 +5,7 @@ import { searchVideos } from 'src/utils/youtube';
 import Icons from 'UI/base/Icons';
 import If from 'UI/base/If';
 import { Column } from 'UI/base/StyledComponents/Containers';
-import { Bar, Title } from 'UI/base/StyledComponents/Titles';
+import { Title, TitleBar } from 'UI/base/StyledComponents/Titles';
 
 import { Container, Controls, Header, VideoFrame } from './styled';
 
@@ -38,7 +38,7 @@ export const YoutubeView = (props: Props.YoutubeView) => {
             />
           </Controls>
         </Header>
-        <Bar />
+        <TitleBar />
         <If check={!!query}>
           <VideoFrame src={urls[index]} />
         </If>

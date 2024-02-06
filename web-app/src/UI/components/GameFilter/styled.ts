@@ -8,7 +8,6 @@ export const Container = styled.div(
     flex-wrap: wrap;
     gap: ${theme.size(4)};
     padding: ${theme.size(4)};
-    max-width: ${theme.size(300)};
     margin: auto;
   `,
 );
