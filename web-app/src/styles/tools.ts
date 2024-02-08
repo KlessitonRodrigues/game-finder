@@ -32,8 +32,8 @@ export const animations = {
 };
 
 export const gradients = {
-  black: `linear-gradient(45deg, ${mc.grey['800']}, ${mc.grey['900']})`,
-  white: `linear-gradient(45deg, ${mc.grey['100']}, ${mc.grey['200']})`,
-  blue: `linear-gradient(45deg, ${mc.lightBlue['600']}, ${mc.lightBlue['700']})`,
-  darkBlue: `linear-gradient(45deg, ${mc.lightBlue['700']}, ${mc.lightBlue['800']})`,
+  black: `linear-gradient(90deg, ${mc.grey['700']}, ${mc.grey['800']})`,
+  white: `linear-gradient(90deg, ${mc.grey['200']}, ${mc.grey['300']})`,
+  blue: `linear-gradient(90deg, ${mc.blue['500']}, ${mc.blue['700']})`,
+  darkBlue: `linear-gradient(90deg, ${mc.blue['700']}, ${mc.blue['800']})`,
 };

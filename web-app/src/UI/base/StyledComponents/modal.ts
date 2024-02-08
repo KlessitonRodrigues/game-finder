@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { materialColors as mc } from 'src/styles/palettes';
 import { animations, cssSize, gradients } from 'src/styles/tools';
 
 export const Modal = styled.div<{ show: boolean }>(
@@ -15,7 +14,7 @@ export const Modal = styled.div<{ show: boolean }>(
     width: 100vw;
     height: 100vh;
     animation: 0.5s ${animations.fadeIn} ease-out;
-    background-color: ${mc.grey['900'] + '99'};
+    background-color: #5555;
     backdrop-filter: blur(12px);
   `,
 );
@@ -38,7 +37,7 @@ export const ModalContent = styled.div(
     width: 100%;
     height: 100%;
     max-width: ${cssSize(350)};
-    padding: ${cssSize(6)} 0 ${cssSize(30)};
+    padding: ${cssSize(6)} 0 ${cssSize(10)};
     overflow: auto;
     animation: 0.5s ${animations.slideUp} ease-out;
   `,

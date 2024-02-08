@@ -17,18 +17,18 @@ export default createGlobalStyle(
     }
     body {
       font-size: ${theme.fontSize.body};
-      width: 98vw;
-      max-width: 100vw;
+      width: 100%;
+      min-height: 100vh;
       // height: 100vh;
       // max-height: 100vh;
       // overflow-y: hidden;
+      background-image: ${theme.colors.gradientBg};
     }
     html,
     body {
       font-family: 'Quicksand', sans-serif;
       color: ${theme.colors.text1};
       font-weight: 500;
-      background-image: ${gradients.white};
     }
     h1 {
       font-size: ${theme.fontSize.h1};

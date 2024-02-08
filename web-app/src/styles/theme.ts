@@ -1,4 +1,5 @@
 import { atlassianColors, materialColors } from './palettes';
+import { gradients } from './tools';
 
 export const defaultTheme: Styles.Theme = {
   size: (n: number) => `${(n * 0.2).toFixed(1)}rem`,
@@ -20,6 +21,7 @@ export const defaultTheme: Styles.Theme = {
     green: materialColors.lightGreen['800'],
     white: materialColors.grey['50'],
     black: materialColors.black,
+    gradientBg: gradients.white,
   },
   fontSize: {
     h1: '1.3rem',
@@ -35,8 +37,8 @@ export const defaultTheme: Styles.Theme = {
   },
   shadow: {
     low: '1px 1px 2px 1px #0004',
-    medium: '1px 1px 4px 2px #0006',
-    high: '1px 1px 4px 2px #0009',
+    medium: '1px 1px 3px 1px #0007',
+    high: '1px 1px 3px 1px #000A',
   },
   radius: {
     verySmall: '0.2rem',
@@ -52,15 +54,16 @@ export const defaultThemeDark = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors,
-    bg1: materialColors.black + 'EE',
-    bg2: materialColors.black + 'CC',
-    bg3: materialColors.black + 'AA',
-    bg4: materialColors.black + '88',
+    bg1: materialColors.black,
+    bg2: materialColors.black + 'DD',
+    bg3: materialColors.black + 'BB',
+    bg4: materialColors.black + '99',
     text1: materialColors.grey['200'],
     text2: materialColors.grey['300'],
     text3: materialColors.grey['400'],
     text4: materialColors.grey['500'],
     gray: materialColors.grey['600'],
     white: materialColors.grey['300'],
+    gradientBg: gradients.black,
   },
 };

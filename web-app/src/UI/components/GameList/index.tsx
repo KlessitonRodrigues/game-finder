@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import Icons from 'src/UI/base/Icons';
-import If from 'src/UI/base/If';
 import { Column } from 'src/UI/base/StyledComponents/Containers';
 import { Title, TitleBar } from 'src/UI/base/StyledComponents/Titles';
 import useGameData from 'src/hooks/useGameData';

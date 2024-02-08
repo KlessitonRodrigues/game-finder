@@ -18,6 +18,10 @@ export const InputBox = styled.label(
 
     &:hover {
       background-image: ${gradients.darkBlue};
+
+      input {
+        border-bottom: 1px solid ${theme.colors.white};
+      }
     }
   `,
 );

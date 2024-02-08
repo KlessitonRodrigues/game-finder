@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { animations, screenSize } from 'src/styles/tools';
+import { animations, cssSize, gradients, screenSize } from 'src/styles/tools';
 
 export const Container = styled.div(
   ({ theme }) => css`
@@ -14,7 +14,8 @@ export const Cards = styled.div(
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: ${theme.size(4)};
+    gap: ${cssSize(8)} ${cssSize(4)};
+    padding: ${theme.size(2)} 0;
   `,
 );
 
@@ -23,17 +24,13 @@ export const Card = styled.div(
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: ${theme.size(70)};
+    max-width: ${theme.size(80)};
+    border: 2px solid ${theme.colors.text1 + '44'};
     border-radius: ${theme.radius.large};
-    box-shadow: ${theme.shadow.low};
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
     animation: ${animations.slideUp} 0.5s;
-
-    &:hover {
-      box-shadow: ${theme.shadow.medium};
-    }
 
     @media (max-width: ${screenSize.tablet}px) {
       max-width: unset;
@@ -45,9 +42,9 @@ export const CardImg = styled.img(
   ({ theme }) => css`
     width: 100%;
     height: 100%;
-    max-width: ${theme.size(70)};
-    max-height: ${theme.size(80)};
-    background-color: ${theme.colors.bg2};
+    max-width: ${theme.size(80)};
+    max-height: ${theme.size(95)};
+    background-color: ${theme.colors.bg3};
     border: none;
 
     @media (max-width: ${screenSize.tablet}px) {
@@ -62,7 +59,7 @@ export const CardDescription = styled.div(
     display: flex;
     flex-direction: column;
     height: ${theme.size(22)};
-    background-color: ${theme.colors.bg2};
+    background-color: ${theme.colors.bg3};
     color: ${theme.colors.text1};
     padding: ${theme.size(3)} ${theme.size(2)};
     font-size: ${theme.fontSize.verySmall};

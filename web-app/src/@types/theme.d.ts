@@ -19,6 +19,7 @@ declare namespace Styles {
       green: string;
       white: string;
       black: string;
+      gradientBg: string;
     };
     radius: {
       verySmall: string;

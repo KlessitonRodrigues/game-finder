@@ -58,6 +58,21 @@ export const GameFilter = () => {
         <TitleBar />
 
         <Row>
+          <InputBox>
+            <Icons type="search" />
+            <InputTitle>Search</InputTitle>
+            <Input type="search" value="2023" />
+          </InputBox>
+          <SelectBox>
+            <Icons type="platform" />
+            <SelectTitle>Platform</SelectTitle>
+            <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
+              {PlatformItems}
+            </Select>
+          </SelectBox>
+        </Row>
+
+        <Row>
           <SelectBox>
             <Icons type="category" />
             <SelectTitle>Category Type</SelectTitle>
@@ -65,7 +80,6 @@ export const GameFilter = () => {
               {CategoriesTypes}
             </Select>
           </SelectBox>
-
           <SelectBox>
             <Icons type="category" />
             <SelectTitle>Category</SelectTitle>
@@ -81,7 +95,6 @@ export const GameFilter = () => {
             <InputTitle>From Year</InputTitle>
             <Input type="number" value="2023" />
           </InputBox>
-
           <InputBox>
             <Icons type="date" />
             <InputTitle>To Year</InputTitle>
@@ -91,14 +104,6 @@ export const GameFilter = () => {
 
         <Row>
           <SelectBox>
-            <Icons type="platform" />
-            <SelectTitle>Platform</SelectTitle>
-            <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
-              {PlatformItems}
-            </Select>
-          </SelectBox>
-
-          <SelectBox>
             <Icons type="list" />
             <SelectTitle>List Format</SelectTitle>
             <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
@@ -106,13 +111,23 @@ export const GameFilter = () => {
               <SelectItem>Random</SelectItem>
             </Select>
           </SelectBox>
+          <SelectBox>
+            <Icons type="list" />
+            <SelectTitle>Pages Items</SelectTitle>
+            <Select value={gamePlatform} onChange={ev => setGamePlatform(Number(ev.target.value))}>
+              <SelectItem>10</SelectItem>
+              <SelectItem>25</SelectItem>
+              <SelectItem>50</SelectItem>
+            </Select>
+          </SelectBox>
+        </Row>
+        <Row>
+          <DefaultButton onClick={onFiltering}>
+            <Icons type="search" />
+            Find Games
+          </DefaultButton>
         </Row>
       </Column>
-
-      <DefaultButton onClick={onFiltering}>
-        <Icons type="search" />
-        Find Games
-      </DefaultButton>
     </Container>
   );
 };

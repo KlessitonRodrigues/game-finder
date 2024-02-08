@@ -22,10 +22,9 @@ export const Column = styled.div(
     flex-direction: column;
     gap: ${theme.size(4)};
     padding: ${theme.size(4)};
-    background-color: ${theme.colors.bg1};
+    background-color: ${theme.colors.bg2};
     color: ${theme.colors.text2};
-    backdrop-filter: blur(4px);
-    border-radius: ${theme.radius.medium};
+    border-radius: ${theme.radius.veryLarge};
     box-shadow: ${theme.shadow.low};
   `,
 );
