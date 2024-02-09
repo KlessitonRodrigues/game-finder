@@ -17,7 +17,6 @@ import MobyGameView from 'UI/components/MobyGameView';
 import { YoutubeView } from 'UI/components/YoutubeView';
 
 const GameViewPage = () => {
-  const { gameId } = useApp();
   const [isLoading, setloading] = useState(false);
   const [game, setGame] = useState<Utils.GameInfo>(gameInfo);
 
@@ -29,10 +28,6 @@ const GameViewPage = () => {
 
     load().finally(() => setloading(false));
   }, []);
-
-  useEffect(() => {
-    getLocalGameById(Number(gameId)).then(data => data.n && setGame(data));
-  }, [gameId]);
 
   return (
     <PageContainer>

@@ -9,22 +9,22 @@ declare namespace Hooks {
   };
 
   type UseAppContext = {
-    gameId: string;
-    gameCategory: number;
-    gamePlatform: number;
-    setGameId: React.Dispatch<string>;
-    setGameCategory: React.Dispatch<number>;
-    setGamePlatform: React.Dispatch<number>;
+    darkTheme: boolean;
+    setDarkTheme: React.Dispatch<boolean>;
   };
 
   type UseGameDataContext = {
     lastUpdate: number;
-    selectedGame: number;
     categories: Utils.GameData['categories'];
     platforms: Utils.GameData['platforms'];
+    selectedGame: number;
+    selectedPlatform: number;
+    selectedCategory: number;
     setLastUpdate: React.Dispatch<number>;
-    setSelectedGame: React.Dispatch<number>;
     setCategories: React.Dispatch<Utils.GameData['categories']>;
     setPlatforms: React.Dispatch<Utils.GameData['platforms']>;
+    setSelectedGame: React.Dispatch<number>;
+    setPlatform: React.Dispatch<number>;
+    setCategory: React.Dispatch<number>;
   };
 }

@@ -1,9 +1,29 @@
 import useApp from 'src/hooks/useApp';
 
-import { Container } from './styled';
+import Icons from '../Icons';
+import { Column, Row } from '../StyledComponents/Containers';
+import { Title } from '../StyledComponents/Titles';
+import { Buttons, Container } from './styled';
 
 const Header = () => {
-  return <Container>Game Finder</Container>;
+  const { darkTheme, setDarkTheme } = useApp();
+
+  return (
+    <Container>
+      <Column>
+        <Row>
+          <Title>
+            <Icons size={10} type="platform" />
+            Game Finder
+          </Title>
+          <Buttons>
+            <Icons type={darkTheme ? 'sun' : 'moon'} onClick={() => setDarkTheme(!darkTheme)} />
+            <Icons type="github" />
+          </Buttons>
+        </Row>
+      </Column>
+    </Container>
+  );
 };
 
 export default Header;

@@ -6,13 +6,16 @@ import {
   RiFunctionLine,
   RiGalleryLine,
   RiGameLine,
+  RiGithubLine,
   RiListSettingsLine,
   RiLoader5Line,
+  RiMoonLine,
   RiSearch2Line,
   RiSkipLeftLine,
   RiSkipRightLine,
   RiStarFill,
   RiStarLine,
+  RiSunLine,
   RiYoutubeLine,
 } from 'react-icons/ri';
 
@@ -32,4 +35,7 @@ export const iconMap: Record<Props.Icons['type'], React.ReactElement> = {
   list: <RiListSettingsLine />,
   search: <RiSearch2Line />,
   close: <RiCloseLine />,
+  sun: <RiSunLine />,
+  moon: <RiMoonLine />,
+  github: <RiGithubLine />,
 };

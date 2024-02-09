@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-import { screenSize } from 'src/styles/tools';
+import { cssSize, screenSize } from 'src/styles/tools';
 
 export const Columns = styled.div(
-  ({ theme }) => css`
+  () => css`
     width: 100%;
     display: flex;
-    padding: 0 ${theme.size(4)} ${theme.size(4)};
-    gap: ${theme.size(4)};
+    padding: 0 ${cssSize(4)} ${cssSize(4)};
+    gap: ${cssSize(4)};
 
     @media (max-width: ${screenSize.laptopM}px) {
       flex-direction: column;
@@ -20,8 +20,8 @@ export const Column = styled.div(
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: ${theme.size(4)};
-    padding: ${theme.size(4)};
+    gap: ${cssSize(4)};
+    padding: ${cssSize(4)};
     background-color: ${theme.colors.bg2};
     color: ${theme.colors.text2};
     border-radius: ${theme.radius.veryLarge};
@@ -30,10 +30,21 @@ export const Column = styled.div(
 );
 
 export const Row = styled.div(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     align-items: center;
-    gap: ${theme.size(4)};
+    justify-content: space-between;
+    gap: ${cssSize(4)};
+    width: 100%;
+  `,
+);
+
+export const FlexRow = styled.div<{ justify?: string }>(
+  ({ justify }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: ${justify || 'flex-start'};
+    gap: ${cssSize(4)};
     width: 100%;
 
     @media (max-width: ${screenSize.tablet}px) {

@@ -17,7 +17,10 @@ declare namespace Props {
       | 'date'
       | 'list'
       | 'search'
-      | 'close';
+      | 'close'
+      | 'sun'
+      | 'moon'
+      | 'github';
     style?: React.CSSProperties;
   };
 

@@ -5,7 +5,7 @@ import { Container } from './styled';
 
 const Icons = (props: Props.Icons) => {
   const { type, size, style, onClick } = props;
-  const Icon = useMemo(() => iconMap[type], []);
+  const Icon = useMemo(() => iconMap[type], [type]);
 
   return (
     <Container className="icon" size={size} style={style} onClick={onClick}>

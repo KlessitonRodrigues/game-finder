@@ -3,17 +3,11 @@ import { PropsWithChildren, createContext, useContext, useMemo, useState } from 
 const AppContext = createContext<Hooks.UseAppContext>(null);
 
 export const AppProvider = (props: PropsWithChildren) => {
-  const [gameId, setGameId] = useState('');
-  const [gameCategory, setGameCategory] = useState(0);
-  const [gamePlatform, setGamePlatform] = useState(0);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   const context: Hooks.UseAppContext = {
-    gameId,
-    gameCategory,
-    gamePlatform,
-    setGameId,
-    setGameCategory,
-    setGamePlatform,
+    darkTheme,
+    setDarkTheme,
   };
 
   const value = useMemo(() => context, [JSON.stringify(context)]);
