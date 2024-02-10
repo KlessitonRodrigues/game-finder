@@ -14,5 +14,11 @@ export const Buttons = styled.div(
     display: flex;
     align-items: center;
     gap: ${cssSize(4)};
+
+    a {
+      font-size: 0;
+      padding: 0;
+      margin: 0;
+    }
   `,
 );

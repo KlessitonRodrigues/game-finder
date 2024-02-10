@@ -63,7 +63,7 @@ export const defaultThemeDark = {
     text3: materialColors.grey['400'],
     text4: materialColors.grey['500'],
     gray: materialColors.grey['600'],
-    white: materialColors.grey['300'],
+    white: materialColors.grey['200'],
     gradientBg: gradients.black,
   },
 };

@@ -1,3 +1,4 @@
+import { urls } from 'src/constants/urls';
 import useApp from 'src/hooks/useApp';
 
 import Icons from '../Icons';
@@ -18,7 +19,10 @@ const Header = () => {
           </Title>
           <Buttons>
             <Icons type={darkTheme ? 'sun' : 'moon'} onClick={() => setDarkTheme(!darkTheme)} />
-            <Icons type="github" />
+            <a href={urls.repository} target="_blank">
+              <Icons type="github" />
+            </a>
+            <Title>EN</Title>
           </Buttons>
         </Row>
       </Column>

@@ -26,6 +26,7 @@ export const Column = styled.div(
     color: ${theme.colors.text2};
     border-radius: ${theme.radius.veryLarge};
     box-shadow: ${theme.shadow.low};
+    transition: 0.5s;
   `,
 );
 

@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 
 import { materialColors as mc } from 'src/styles/palettes';
 
-import bgImage1 from 'UI/assets/jpg/bg_8.jpg';
+// import bgImage1 from 'UI/assets/jpg/bg_8.jpg';
+import bgImage1 from 'UI/assets/png/gradient_1.png';
 
-export const ImageBg = styled.div(
-  () => css`
+export const ImageBg = styled.div<{ isDark?: boolean }>(
+  ({ isDark }) => css`
     position: fixed;
     top: 0;
     left: 0;
@@ -16,12 +17,14 @@ export const ImageBg = styled.div(
     background-position: center;
     background-size: cover;
     z-index: -1;
+    transition: 0.5s;
+    ${isDark && 'filter: brightness(0.5);'}
   `,
 );
 
 export const GradidentBg = styled.div(
   () => css`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

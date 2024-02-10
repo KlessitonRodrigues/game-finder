@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 
 import { Title, TitleBar } from 'src/UI/base/StyledComponents/Titles';
 import { DefaultButton } from 'src/UI/base/StyledComponents/buttons';
+import { gameFilters } from 'src/constants/models';
 import useGameData from 'src/hooks/useGameData';
 import { getRandomGames } from 'src/utils/mobygames';
 
@@ -23,6 +24,7 @@ export const GameFilter = () => {
     setPlatform,
   } = useGameData();
   const [categoryType, setCategoryType] = useState('');
+  const [filters, setFilters] = useState(gameFilters);
 
   const PlatformItems = useMemo(() => {
     return platforms.map((platform, i) => <SelectItem value={i}>{platform}</SelectItem>);
@@ -67,7 +69,11 @@ export const GameFilter = () => {
           <InputBox>
             <Icons type="search" />
             <InputTitle>Search</InputTitle>
-            <Input type="search" value="2023" />
+            <Input
+              type="search"
+              value={filters.search}
+              onChange={ev => setFilters({ ...filters, search: ev.target.value })}
+            />
           </InputBox>
           <SelectBox>
             <Icons type="platform" />

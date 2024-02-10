@@ -4,6 +4,7 @@ import Header from 'src/UI/base/Header';
 import Icons from 'src/UI/base/Icons';
 import If from 'src/UI/base/If';
 import { Title } from 'src/UI/base/StyledComponents/Titles';
+import { ImageBg } from 'src/UI/base/StyledComponents/background';
 import { Modal, ModalContent, ModalHeader } from 'src/UI/base/StyledComponents/modal';
 import GameList from 'src/UI/components/GameList';
 import useApp from 'src/hooks/useApp';
@@ -17,6 +18,7 @@ import MobyGameView from 'UI/components/MobyGameView';
 import { YoutubeView } from 'UI/components/YoutubeView';
 
 const GameViewPage = () => {
+  const { darkTheme } = useApp();
   const [isLoading, setloading] = useState(false);
   const [game, setGame] = useState<Utils.GameInfo>(gameInfo);
 
@@ -50,6 +52,7 @@ const GameViewPage = () => {
       </Modal>
 
       <Loading type="fullScreen" show={isLoading} title="Loading Game List" />
+      <ImageBg isDark={darkTheme} />
     </PageContainer>
   );
 };
