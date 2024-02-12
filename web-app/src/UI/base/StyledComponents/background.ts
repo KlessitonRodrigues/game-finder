@@ -17,7 +17,7 @@ export const ImageBg = styled.div<{ isDark?: boolean }>(
     background-position: center;
     background-size: cover;
     z-index: -1;
-    transition: 0.5s;
+    transition: 0.3s;
     ${isDark && 'filter: brightness(0.5);'}
   `,
 );

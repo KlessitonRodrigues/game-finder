@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { gradients } from 'src/styles/tools';
-
 export const InputBox = styled.label(
   ({ theme }) => css`
     display: flex;
@@ -11,18 +9,9 @@ export const InputBox = styled.label(
     padding: ${theme.size(2)} ${theme.size(3)};
     font-weight: bold;
     font-size: ${theme.fontSize.label};
-    border-radius: ${theme.radius.medium};
-    background-image: ${gradients.blue};
-    color: ${theme.colors.white};
-    box-shadow: ${theme.shadow.low};
-
-    &:hover {
-      background-image: ${gradients.darkBlue};
-
-      input {
-        border-bottom: 1px solid ${theme.colors.white};
-      }
-    }
+    color: ${theme.colors.text2};
+    border: 1px solid ${theme.colors.text4};
+    border-radius: ${theme.radius.large};
   `,
 );
 
@@ -35,12 +24,12 @@ export const InputTitle = styled.div(
 export const Input = styled.input(
   ({ theme }) => css`
     width: 100%;
-    padding-left: ${theme.size(2)};
-    padding-top: ${theme.size(0.5)};
-    font-size: ${theme.fontSize.body};
+    padding: ${theme.size(0.5)} 0;
+    font-size: ${theme.fontSize.h6};
     font-weight: bold;
     border: none;
     background-color: transparent;
-    color: ${theme.colors.white};
+    color: ${theme.colors.text1};
+    border-bottom: 1px solid ${theme.colors.text1};
   `,
 );

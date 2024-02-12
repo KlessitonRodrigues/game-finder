@@ -36,14 +36,14 @@ export const getPageItems = (page: number, items: number) => {
   return gameData.filtered?.slice(index, index + items);
 };
 
-export const getRandomGames = (category: number, platform: number) => {
+export const getRandomGames = (category: string, platform: string) => {
   try {
     const { games } = gameData;
     const filteredGames = games
       .filter((game: any) => {
         const { g, p } = game;
-        if (g?.includes(category)) {
-          if (p?.includes(platform)) return true;
+        if (g?.includes(Number(category))) {
+          if (p?.includes(Number(platform))) return true;
         }
         return false;
       })
@@ -70,4 +70,17 @@ export const getGameFilters = () => {
   } catch (err) {
     console.error(err);
   }
+};
+
+export const getCategoryNames = (type: string) => {
+  const types: string[] = [];
+  const items: { i: number; name: string }[] = [];
+
+  gameData.categories.forEach((category, i) => {
+    const { t, n } = JSON.parse(category);
+    if (!types.includes(t)) types.push(t);
+    if (type === '' || type === t) items.push({ i, name: n });
+  });
+
+  return { types, items };
 };

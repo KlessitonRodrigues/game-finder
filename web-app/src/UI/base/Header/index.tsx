@@ -18,11 +18,11 @@ const Header = () => {
             Game Finder
           </Title>
           <Buttons>
+            <Title>EN</Title>
             <Icons type={darkTheme ? 'sun' : 'moon'} onClick={() => setDarkTheme(!darkTheme)} />
             <a href={urls.repository} target="_blank">
               <Icons type="github" />
             </a>
-            <Title>EN</Title>
           </Buttons>
         </Row>
       </Column>

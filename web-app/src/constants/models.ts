@@ -1,10 +1,8 @@
 export const gameFilters = {
   search: '',
-  fromYear: 0,
-  toYear: 0,
-  platform: 0,
-  category: 0,
-  categoryType: 0,
-  pageItems: 10,
-  isRandom: false,
+  fromYear: '2023',
+  toYear: '2024',
+  platform: '',
+  category: '',
+  categoryType: '',
 };

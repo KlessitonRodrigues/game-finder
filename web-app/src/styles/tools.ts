@@ -35,5 +35,5 @@ export const gradients = {
   black: `linear-gradient(180deg, ${mc.grey['600']}, ${mc.grey['700']})`,
   white: `linear-gradient(180deg, ${mc.grey['200']}, ${mc.grey['300']})`,
   blue: `linear-gradient(180deg, ${mc.blue['600']}, ${mc.blue['700']})`,
-  darkBlue: `linear-gradient(180deg, ${mc.blue['700']}, ${mc.blue['800']})`,
+  darkBlue: `linear-gradient(180deg, ${mc.blue['800']}, ${mc.blue['900']})`,
 };

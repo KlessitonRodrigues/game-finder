@@ -20,5 +20,9 @@ export const Buttons = styled.div(
       padding: 0;
       margin: 0;
     }
+
+    .icon:hover {
+      opacity: 0.5;
+    }
   `,
 );

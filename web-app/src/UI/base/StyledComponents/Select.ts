@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { gradients } from 'src/styles/tools';
-
 export const SelectBox = styled.label(
   ({ theme }) => css`
     display: flex;
@@ -11,14 +9,9 @@ export const SelectBox = styled.label(
     padding: ${theme.size(2)} ${theme.size(3)};
     font-weight: bold;
     font-size: ${theme.fontSize.label};
-    background-image: ${gradients.blue};
-    color: ${theme.colors.white};
-    border-radius: ${theme.radius.medium};
-    box-shadow: ${theme.shadow.low};
-
-    &:hover {
-      background-image: ${gradients.darkBlue};
-    }
+    color: ${theme.colors.text2};
+    border: 1px solid ${theme.colors.text4};
+    border-radius: ${theme.radius.large};
   `,
 );
 
@@ -27,7 +20,7 @@ export const Select = styled.select(
     width: 100%;
     font-family: sans-serif;
     font-size: ${theme.fontSize.body};
-    color: ${theme.colors.white};
+    color: ${theme.colors.text1};
     padding-left: ${theme.size(2)};
     padding-top: ${theme.size(0.5)};
 

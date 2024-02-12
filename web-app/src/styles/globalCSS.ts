@@ -2,8 +2,6 @@ import { createGlobalStyle, css } from 'styled-components';
 
 import 'src/UI/assets/fonts/quicksand.ttf';
 
-import { gradients } from './tools';
-
 export default createGlobalStyle(
   ({ theme }) => css`
     * {
