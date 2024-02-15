@@ -2,24 +2,6 @@ declare namespace Utils {
   type Paths = '/home' | '/game-view';
 
   type LangJson = Record<string, string>;
-
-  type GameInfo = {
-    i: number;
-    n: string;
-    l: string;
-    d: string;
-    c: string;
-    s: string[];
-    g: number[];
-    p: number[];
-  };
-
-  type GameData = {
-    games: GameInfo[];
-    filtered: GameInfo[];
-    categories: string[];
-    platforms: string[];
-  };
 }
 
 declare module '*.png';

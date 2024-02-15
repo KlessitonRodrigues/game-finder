@@ -15,14 +15,14 @@ declare namespace Hooks {
 
   type UseGameDataContext = {
     lastUpdate: number;
-    categories: Utils.GameData['categories'];
-    platforms: Utils.GameData['platforms'];
+    categories: Models.GameData['categories'];
+    platforms: Models.GameData['platforms'];
     selectedGame: number;
     selectedPlatform: number;
     selectedCategory: number;
     setLastUpdate: React.Dispatch<number>;
-    setCategories: React.Dispatch<Utils.GameData['categories']>;
-    setPlatforms: React.Dispatch<Utils.GameData['platforms']>;
+    setCategories: React.Dispatch<Models.GameData['categories']>;
+    setPlatforms: React.Dispatch<Models.GameData['platforms']>;
     setSelectedGame: React.Dispatch<number>;
     setPlatform: React.Dispatch<number>;
     setCategory: React.Dispatch<number>;

@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 
-import { Title, TitleBar } from 'src/UI/base/StyledComponents/Titles';
+import { Title } from 'src/UI/base/StyledComponents/Titles';
 import { DefaultButton } from 'src/UI/base/StyledComponents/buttons';
 import { gameFilters } from 'src/constants/models';
 import useGameData from 'src/hooks/useGameData';
-import { getCategoryNames, getRandomGames } from 'src/utils/mobygames';
+import { getCategoryNames, updateGameList } from 'src/utils/mobygames';
 
 import Icons from 'UI/base/Icons';
 import { Column, FlexRow } from 'UI/base/StyledComponents/Containers';
@@ -16,6 +16,7 @@ import { Container } from './styled';
 export const GameFilter = () => {
   const { categories, platforms, setLastUpdate } = useGameData();
   const [filters, setFilters] = useState(gameFilters);
+
   const { category, platform, categoryType } = filters;
 
   const categoryItems = useMemo(() => {
@@ -41,7 +42,7 @@ export const GameFilter = () => {
   }, [platforms]);
 
   const onFiltering = () => {
-    getRandomGames(category, category);
+    updateGameList(filters);
     setLastUpdate(Date.now());
   };
 
@@ -52,7 +53,6 @@ export const GameFilter = () => {
           <Icons type="selector" />
           Filters
         </Title>
-        <TitleBar />
 
         <FlexRow>
           <InputBox>
@@ -71,6 +71,7 @@ export const GameFilter = () => {
               value={platform}
               onChange={ev => setFilters({ ...filters, platform: ev.target.value })}
             >
+              <SelectItem value="">All</SelectItem>
               {PlatformItems}
             </Select>
           </SelectBox>
@@ -84,6 +85,7 @@ export const GameFilter = () => {
               value={filters.categoryType}
               onChange={ev => setFilters({ ...filters, categoryType: ev.target.value })}
             >
+              <SelectItem value="">All</SelectItem>
               {CategoriesTypes}
             </Select>
           </SelectBox>
@@ -94,6 +96,7 @@ export const GameFilter = () => {
               value={category}
               onChange={ev => setFilters({ ...filters, category: ev.target.value })}
             >
+              <SelectItem value="">All</SelectItem>
               {CategoriesNames}
             </Select>
           </SelectBox>

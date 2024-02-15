@@ -5,20 +5,7 @@ const apiKey = 'moby_sswl52j8U91ow1oqyNOppHee0XP';
 const apiURL = 'https://api.mobygames.com/v1/games';
 const dataURL = 'https://klessitonrodrigues.github.io/game-finder/assets/json/games.json';
 
-let gameData: Utils.GameData = { games: [], filtered: [], categories: [], platforms: [] };
-
-export const getGameById = async (id: string) => {
-  const query = new URLSearchParams();
-  query.append('api_key', apiKey);
-
-  const queryUrl = `${apiURL}/${id}?${query.toString()}`;
-  const proxyUrl = corsProxy + encodeURIComponent(queryUrl);
-  return (await fetch(proxyUrl)).json();
-};
-
-export const getLocalGameById = async (id: number) => {
-  return gameData.games.find(game => game.i === id);
-};
+let gameData: Models.GameData = { games: [], filtered: [], categories: [], platforms: [] };
 
 export const loadGameList = async () => {
   try {
@@ -31,42 +18,28 @@ export const loadGameList = async () => {
 };
 
 export const getPageItems = (page: number, items: number) => {
-  if (page < 0) return [];
-  const index = page * items;
+  const index = (page - 1) * items;
   return gameData.filtered?.slice(index, index + items);
 };
 
-export const getRandomGames = (category: string, platform: string) => {
+export const updateGameList = (filters: Models.GameFilters) => {
   try {
+    const { search, category, platform } = filters;
     const { games } = gameData;
-    const filteredGames = games
-      .filter((game: any) => {
-        const { g, p } = game;
-        if (g?.includes(Number(category))) {
-          if (p?.includes(Number(platform))) return true;
-        }
-        return false;
-      })
-      .sort((a, b) => Math.random() - 0.5);
+    const gameList: Models.GameInfo[] = [];
 
-    gameData.filtered = filteredGames;
-  } catch (err) {
-    console.error(err);
-  }
-};
+    games.forEach(game => {
+      const { g, p, n } = game;
+      const name = n?.toLocaleLowerCase();
 
-export const getGameFilters = () => {
-  try {
-    const categories = gameData?.categories || [];
-    const platforms = gameData?.platforms || [];
+      if (search && !name?.includes(search)) return false;
+      if (category && !g?.includes(Number(category))) return false;
+      if (platform && !p?.includes(Number(platform))) return false;
 
-    const sortedCategories = categories.sort((ct1, ct2) => {
-      const [gender1, name1] = ct1.split(',');
-      const [gender2, name2] = ct2.split(',');
-      return gender1 === gender2 ? -1 : 1;
+      gameList.push(game);
     });
 
-    return { categories: sortedCategories, platforms };
+    gameData.filtered = gameList;
   } catch (err) {
     console.error(err);
   }
@@ -84,3 +57,36 @@ export const getCategoryNames = (type: string) => {
 
   return { types, items };
 };
+
+/*
+export const getGameFilters = () => {
+  try {
+    const categories = gameData?.categories || [];
+    const platforms = gameData?.platforms || [];
+
+    const sortedCategories = categories.sort((ct1, ct2) => {
+      const [gender1, name1] = ct1.split(',');
+      const [gender2, name2] = ct2.split(',');
+      return gender1 === gender2 ? -1 : 1;
+    });
+
+    return { categories: sortedCategories, platforms };
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getGameById = async (id: string) => {
+  const query = new URLSearchParams();
+  query.append('api_key', apiKey);
+
+  const queryUrl = `${apiURL}/${id}?${query.toString()}`;
+  const proxyUrl = corsProxy + encodeURIComponent(queryUrl);
+  return (await fetch(proxyUrl)).json();
+};
+
+export const getLocalGameById = async (id: number) => {
+  return gameData.games.find(game => game.i === id);
+};
+
+*/

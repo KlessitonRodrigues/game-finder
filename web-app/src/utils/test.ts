@@ -1,4 +1,4 @@
-export const gameInfo: Utils.GameInfo = {
+export const gameInfo: Models.GameInfo = {
   i: 1,
   n: '',
   l: '',

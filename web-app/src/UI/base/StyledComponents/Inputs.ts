@@ -30,6 +30,6 @@ export const Input = styled.input(
     border: none;
     background-color: transparent;
     color: ${theme.colors.text1};
-    border-bottom: 1px solid ${theme.colors.text1};
+    border-bottom: 1px solid ${theme.colors.text4};
   `,
 );

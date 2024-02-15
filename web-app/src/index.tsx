@@ -12,7 +12,7 @@ const App = () => {
   return (
     <AppProvider>
       <RoutesProvider>
-        <StyleSheetManager disableCSSOMInjection>
+        <StyleSheetManager>
           <GameDataProvider>
             <BrowserRouter>
               <Router />

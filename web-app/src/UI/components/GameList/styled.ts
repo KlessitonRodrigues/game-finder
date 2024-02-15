@@ -27,7 +27,7 @@ export const Card = styled.div(
     width: 100%;
     max-width: ${cssSize(80)};
     border: 2px solid ${theme.colors.text1 + '44'};
-    border-radius: ${theme.radius.large};
+    border-radius: ${theme.radius.veryLarge};
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
@@ -49,8 +49,10 @@ export const CardImg = styled.img(
     border: none;
 
     @media (max-width: ${screenSize.tablet}px) {
+      width: 100%;
+      height: auto;
       max-width: unset;
-      max-height: ${cssSize(120)};
+      max-height: ${cssSize(160)};
     }
   `,
 );

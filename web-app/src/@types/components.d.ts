@@ -47,10 +47,10 @@ declare namespace Props {
   };
 
   type MobyGameView = {
-    game: Utils.GameInfo;
+    game: Models.GameInfo;
   };
 
   type GameList = {
-    onSelect: (game: Utils.GameInfo) => void;
+    onSelect: (game: Models.GameInfo) => void;
   };
 }
