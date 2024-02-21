@@ -5,7 +5,7 @@ let gameData: Models.GameData = { games: [], filtered: [], categories: [], platf
 
 export const loadGameList = async () => {
   try {
-    gameData = await (await fetch(urls.localGamelist)).json();
+    gameData = await (await fetch(urls.gamelist)).json();
 
     const { categories, platforms } = gameData;
 
