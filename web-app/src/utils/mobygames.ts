@@ -1,16 +1,16 @@
 import 'src/UI/assets/json/games.json';
-
-const corsProxy = 'https://corsproxy.io/?';
-const apiKey = 'moby_sswl52j8U91ow1oqyNOppHee0XP';
-const apiURL = 'https://api.mobygames.com/v1/games';
-const dataURL = 'https://klessitonrodrigues.github.io/game-finder/assets/json/games.json';
+import { urls } from 'src/constants/urls';
 
 let gameData: Models.GameData = { games: [], filtered: [], categories: [], platforms: [] };
 
 export const loadGameList = async () => {
   try {
-    gameData = await (await fetch(dataURL)).json();
+    gameData = await (await fetch(urls.localGamelist)).json();
+
     const { categories, platforms } = gameData;
+
+    console.log(gameData);
+
     return { categories, platforms };
   } catch (err) {
     console.error(err);
@@ -19,22 +19,30 @@ export const loadGameList = async () => {
 
 export const getPageItems = (page: number, items: number) => {
   const index = (page - 1) * items;
-  return gameData.filtered?.slice(index, index + items);
+
+  return {
+    pages: Math.ceil(gameData.filtered?.length / items),
+    pageItems: gameData.filtered?.slice(index, index + items),
+  };
 };
 
 export const updateGameList = (filters: Models.GameFilters) => {
   try {
-    const { search, category, platform } = filters;
-    const { games } = gameData;
+    const { search, category, platform, fromYear, toYear } = filters;
     const gameList: Models.GameInfo[] = [];
 
-    games.forEach(game => {
-      const { g, p, n } = game;
+    gameData.games.forEach(game => {
+      const { g, p, n, y } = game;
       const name = n?.toLocaleLowerCase();
 
       if (search && !name?.includes(search)) return false;
       if (category && !g?.includes(Number(category))) return false;
       if (platform && !p?.includes(Number(platform))) return false;
+      if (platform && !p?.includes(Number(platform))) return false;
+
+      const gameYear = new Date(y).getFullYear();
+      if (fromYear && Number(fromYear) >= gameYear) return false;
+      if (toYear && Number(toYear) <= gameYear) return false;
 
       gameList.push(game);
     });

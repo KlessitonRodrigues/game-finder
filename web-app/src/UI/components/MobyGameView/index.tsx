@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { urls } from 'src/constants/urls';
 import useGameData from 'src/hooks/useGameData';
 
 import Icons from 'UI/base/Icons';
@@ -22,7 +23,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
   const { game } = props;
   const { categories, platforms } = useGameData();
 
-  const Categories = useMemo(() => {
+  const gameCategories = useMemo(() => {
     return game.g?.map(index => {
       if (!categories[index]) return null;
       const { t, n } = JSON.parse(categories[index]);
@@ -30,13 +31,21 @@ const MobyGameView = (props: Props.MobyGameView) => {
     });
   }, [game.g]);
 
-  const Platforms = useMemo(() => {
+  const gamePlatforms = useMemo(() => {
     return game.p?.map(index => <ListItem>{platforms[index]}</ListItem>);
   }, [game.p]);
 
-  const Screenshots = useMemo(() => {
-    return game.s?.map(url => <ScreenShot src={url} />);
+  const gameScreenshots = useMemo(() => {
+    return game.s?.map(url => <ScreenShot src={urls.mobyCDN + url} />);
   }, [game.s]);
+
+  const gameStars = useMemo(() => {
+    return [2, 4, 6, 8, 10].map(score => {
+      if (Number(game.r) >= score) return <Icons type="star" />;
+      if (Number(game.r) - score > -2) return <Icons type="starHalf" />;
+      return <Icons type="starLine" />;
+    });
+  }, [game.r]);
 
   return (
     <Container>
@@ -46,16 +55,11 @@ const MobyGameView = (props: Props.MobyGameView) => {
         </Column>
         <Column>
           <Title>{game?.n}</Title>
-          <Year>2024</Year>
+          <Year>{game?.y}</Year>
           <MobyScore>
-            <Icons type="star" />
-            <Icons type="star" />
-            <Icons type="star" />
-            <Icons type="starLine" />
-            <Icons type="starLine" />
+            {gameStars} {game.r}
           </MobyScore>
           <Description dangerouslySetInnerHTML={{ __html: game?.d }} />
-
           <MobyLink href={game?.l}>MobyGames</MobyLink>
         </Column>
       </Columns>
@@ -67,7 +71,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             Categories
           </Title>
           <TitleBar />
-          <List>{Categories}</List>
+          <List>{gameCategories}</List>
         </Column>
         <Column>
           <Title>
@@ -75,7 +79,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             Platforms
           </Title>
           <TitleBar />
-          <List>{Platforms}</List>
+          <List>{gamePlatforms}</List>
         </Column>
       </Columns>
 
@@ -86,7 +90,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
             Screenshots
           </Title>
           <TitleBar />
-          <ScreenShots>{Screenshots}</ScreenShots>
+          <ScreenShots>{gameScreenshots}</ScreenShots>
         </Column>
       </Columns>
     </Container>

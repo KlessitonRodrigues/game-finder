@@ -17,6 +17,8 @@ declare namespace Models {
     s: string[];
     g: number[];
     p: number[];
+    y: string;
+    r: string;
   };
 
   type GameData = {

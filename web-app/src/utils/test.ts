@@ -7,4 +7,6 @@ export const gameInfo: Models.GameInfo = {
   s: [],
   g: [],
   p: [],
+  r: '8.0',
+  y: '2024',
 };

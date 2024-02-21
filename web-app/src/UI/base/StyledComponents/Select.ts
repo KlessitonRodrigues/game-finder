@@ -23,6 +23,8 @@ export const Select = styled.select(
     color: ${theme.colors.text1};
     padding-left: ${theme.size(2)};
     padding-top: ${theme.size(0.5)};
+    border-bottom: 1px solid ${theme.colors.text4};
+    border-radius: 0;
 
     &::-webkit-scrollbar {
       width: ${theme.size(2)};

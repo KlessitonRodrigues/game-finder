@@ -11,6 +11,7 @@ declare namespace Props {
       | 'youtube'
       | 'star'
       | 'starLine'
+      | 'starHalf'
       | 'category'
       | 'platform'
       | 'screenshot'
@@ -52,5 +53,11 @@ declare namespace Props {
 
   type GameList = {
     onSelect: (game: Models.GameInfo) => void;
+  };
+
+  type Pagination = {
+    page: number;
+    onChange: (page: number) => void;
+    total: number;
   };
 }

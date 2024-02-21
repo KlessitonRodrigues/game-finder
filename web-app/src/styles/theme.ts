@@ -15,7 +15,7 @@ export const defaultTheme: Styles.Theme = {
     text3: materialColors.grey['500'],
     text4: materialColors.grey['400'],
     gray: materialColors.grey['500'],
-    yellow: atlassianColors.yellow['600'],
+    yellow: materialColors.yellow['900'],
     red: atlassianColors.red['700'],
     blue: atlassianColors.blue['500'],
     green: materialColors.lightGreen['800'],

@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import Icons from 'src/UI/base/Icons';
-import If from 'src/UI/base/If';
+import Pagination from 'src/UI/base/Pagination';
 import { Column } from 'src/UI/base/StyledComponents/Containers';
 import { Title } from 'src/UI/base/StyledComponents/Titles';
-import { Pages, PagesBadge } from 'src/UI/base/StyledComponents/pagination';
 import useGameData from 'src/hooks/useGameData';
 import { getPageItems } from 'src/utils/mobygames';
 
@@ -12,15 +11,26 @@ import { Card, CardDescription, CardImg, Cards, Container } from './styled';
 
 const GameList = (props: Props.GameList) => {
   const { onSelect } = props;
-
   const { lastUpdate } = useGameData();
   const [list, setList] = useState<Models.GameInfo[]>([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState({ index: 1, total: 0 });
 
   useEffect(() => {
-    setList(getPageItems(page, 20));
-    window.scrollTo({ top: 0 });
-  }, [lastUpdate, page]);
+    const { pages, pageItems } = getPageItems(page.index, 20);
+    if (pageItems) {
+      setList(pageItems);
+      setPage({ index: 1, total: pages });
+      window.scrollTo({ top: 0 });
+    }
+  }, [lastUpdate]);
+
+  useEffect(() => {
+    const { pageItems } = getPageItems(page.index, 20);
+    if (pageItems) {
+      setList(pageItems);
+      window.scrollTo({ top: 0 });
+    }
+  }, [page.index]);
 
   const cardItems = useMemo(() => {
     return list.map(game => {
@@ -28,7 +38,7 @@ const GameList = (props: Props.GameList) => {
         <Card key={game.i} onClick={() => onSelect(game)}>
           <CardImg src={game.c} />
           <CardDescription>
-            <b>2024</b>
+            <b>{game.y}</b>
             <div>{game.n}</div>
           </CardDescription>
         </Card>
@@ -36,7 +46,7 @@ const GameList = (props: Props.GameList) => {
     });
   }, [list]);
 
-  if (!cardItems.length) return null;
+  if (!list.length) return null;
 
   return (
     <Container>
@@ -47,21 +57,12 @@ const GameList = (props: Props.GameList) => {
         </Title>
 
         <Cards>{cardItems}</Cards>
-        <Pages>
-          <PagesBadge>
-            <Icons type="previous" onClick={() => page > 1 && setPage(page - 1)} />
-          </PagesBadge>
-          <If check={page - 1 > 0}>
-            <PagesBadge onClick={() => setPage(page - 1)}>{page - 1}</PagesBadge>
-          </If>
-          <PagesBadge active>{page}</PagesBadge>
-          <PagesBadge onClick={() => setPage(page + 1)}>{page + 1}</PagesBadge>
-          <PagesBadge onClick={() => setPage(page + 2)}>{page + 2}</PagesBadge>
 
-          <PagesBadge>
-            <Icons type="next" onClick={() => setPage(page + 1)} />
-          </PagesBadge>
-        </Pages>
+        <Pagination
+          page={page.index}
+          total={page.total}
+          onChange={index => setPage({ ...page, index })}
+        />
       </Column>
     </Container>
   );

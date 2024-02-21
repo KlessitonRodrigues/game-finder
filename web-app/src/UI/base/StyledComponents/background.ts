@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { materialColors as mc } from 'src/styles/palettes';
 
-// import bgImage1 from 'UI/assets/jpg/bg_8.jpg';
+import bgImage2 from 'UI/assets/jpg/bg_8.jpg';
 import bgImage1 from 'UI/assets/png/gradient_1.png';
 
 export const ImageBg = styled.div<{ isDark?: boolean }>(
@@ -12,7 +12,7 @@ export const ImageBg = styled.div<{ isDark?: boolean }>(
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(${bgImage1});
+    background-image: url(${bgImage2});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
