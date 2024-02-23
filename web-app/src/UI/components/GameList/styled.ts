@@ -22,12 +22,13 @@ export const Cards = styled.div(
 
 export const Card = styled.div(
   ({ theme }) => css`
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: ${cssSize(80)};
-    border: 2px solid ${theme.colors.text1 + '44'};
-    border-radius: ${theme.radius.veryLarge};
+    box-shadow: ${theme.shadow.low};
+    border-radius: ${theme.radius.large};
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
@@ -59,13 +60,16 @@ export const CardImg = styled.img(
 
 export const CardDescription = styled.div(
   ({ theme }) => css`
+    position: absolute;
+    bottom: 0;
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: ${cssSize(22)};
-    background-color: ${theme.colors.bg3};
+    background-color: ${theme.colors.bg1};
+    backdrop-filter: blur(10px);
     color: ${theme.colors.text1};
-    padding: ${cssSize(3)} ${cssSize(2)};
-    font-size: ${theme.fontSize.verySmall};
+    padding: ${cssSize(2)} ${cssSize(2)};
     font-weight: bold;
 
     b {

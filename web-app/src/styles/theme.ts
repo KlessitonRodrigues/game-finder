@@ -55,9 +55,9 @@ export const defaultThemeDark = {
   colors: {
     ...defaultTheme.colors,
     bg1: materialColors.black,
-    bg2: materialColors.black + 'DD',
-    bg3: materialColors.black + 'BB',
-    bg4: materialColors.black + '99',
+    bg2: materialColors.black,
+    bg3: materialColors.black + 'AA',
+    bg4: materialColors.black + '77',
     text1: materialColors.grey['200'],
     text2: materialColors.grey['300'],
     text3: materialColors.grey['500'],
