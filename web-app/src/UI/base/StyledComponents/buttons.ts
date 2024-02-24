@@ -10,7 +10,7 @@ export const DefaultButton = styled.ol(
     padding: ${theme.size(2)} ${theme.size(3)};
     border: 1px solid transparent;
     border-radius: ${theme.radius.large};
-    background-image: ${gradients.blue};
+    background-image: ${gradients.purple};
     color: ${theme.colors.white};
     box-shadow: ${theme.shadow.low};
     font-size: ${theme.fontSize.label};
@@ -19,7 +19,7 @@ export const DefaultButton = styled.ol(
     transition: 0.1s;
 
     &:hover {
-      background-image: ${gradients.darkBlue};
+      background-image: ${gradients.darkPurple};
     }
 
     .icon {

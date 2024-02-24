@@ -22,7 +22,7 @@ export const Column = styled.div(
     flex-direction: column;
     gap: ${cssSize(4)};
     padding: ${cssSize(4)};
-    background-color: ${theme.colors.bg3};
+    background-color: ${theme.colors.bg1};
     color: ${theme.colors.text2};
     border-radius: ${theme.radius.veryLarge};
     box-shadow: ${theme.shadow.low};

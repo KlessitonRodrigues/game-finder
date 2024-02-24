@@ -66,13 +66,14 @@ export const CardDescription = styled.div(
     flex-direction: column;
     width: 100%;
     height: ${cssSize(22)};
-    background-color: ${theme.colors.bg1};
-    backdrop-filter: blur(10px);
-    color: ${theme.colors.text1};
     padding: ${cssSize(2)} ${cssSize(2)};
+    background-color: ${theme.colors.bg1};
+    color: ${theme.colors.text1};
+    backdrop-filter: blur(10px);
     font-weight: bold;
 
     b {
+      font-size: ${theme.fontSize.small};
       color: ${theme.colors.text3};
     }
   `,

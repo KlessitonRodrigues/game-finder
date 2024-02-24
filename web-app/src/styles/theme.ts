@@ -4,8 +4,8 @@ import { gradients } from './tools';
 export const defaultTheme: Styles.Theme = {
   size: (n: number) => `${(n * 0.2).toFixed(1)}rem`,
   colors: {
-    main: materialColors.blue['500'],
-    mainBg: materialColors.blue['700'],
+    main: materialColors.purple['500'],
+    mainBg: materialColors.purple['700'],
     bg1: materialColors.grey['50'],
     bg2: materialColors.grey['100'],
     bg3: materialColors.grey['200'],

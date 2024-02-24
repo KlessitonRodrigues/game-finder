@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { urls } from 'src/constants/urls';
 import useGameData from 'src/hooks/useGameData';
+import { formatDateString } from 'src/utils/dates';
 
 import Icons from 'UI/base/Icons';
 import { Column, Columns } from 'UI/base/StyledComponents/Containers';
@@ -55,7 +56,7 @@ const MobyGameView = (props: Props.MobyGameView) => {
         </Column>
         <Column>
           <Title>{game?.n}</Title>
-          <Year>{game?.y}</Year>
+          <Year>{formatDateString(game?.y)}</Year>
           <MobyScore>
             {gameStars} {game.r}
           </MobyScore>

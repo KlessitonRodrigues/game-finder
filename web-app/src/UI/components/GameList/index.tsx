@@ -5,6 +5,7 @@ import Pagination from 'src/UI/base/Pagination';
 import { Column } from 'src/UI/base/StyledComponents/Containers';
 import { Title } from 'src/UI/base/StyledComponents/Titles';
 import useGameData from 'src/hooks/useGameData';
+import { formatDateString } from 'src/utils/dates';
 import { getPageItems } from 'src/utils/mobygames';
 
 import { Card, CardDescription, CardImg, Cards, Container } from './styled';
@@ -38,7 +39,7 @@ const GameList = (props: Props.GameList) => {
         <Card key={game.i} onClick={() => onSelect(game)}>
           <CardImg src={game.c} />
           <CardDescription>
-            <b>{game.y}</b>
+            <b>{formatDateString(game.y)}</b>
             <div>{game.n}</div>
           </CardDescription>
         </Card>

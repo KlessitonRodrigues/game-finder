@@ -11,7 +11,7 @@ export const Pages = styled.div(
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: ${gradients.blue};
+    background-image: ${gradients.purple};
     color: ${theme.colors.white};
     box-shadow: ${theme.shadow.medium};
     font-size: ${theme.fontSize.h3};
@@ -30,10 +30,10 @@ export const PagesBadge = styled.div<{ active?: boolean }>(
     min-width: ${cssSize(14)};
     height: ${cssSize(12)};
 
-    ${active && `background-image: ${gradients.darkBlue};`}
+    ${active && `background-image: ${gradients.darkPurple};`}
 
     &:hover {
-      background-image: ${gradients.darkBlue};
+      background-image: ${gradients.darkPurple};
     }
   `,
 );

@@ -18,24 +18,24 @@ export const Cover = styled.img(
   `,
 );
 
-export const Year = styled.h4(({ theme }) => css``);
+export const Year = styled.h4(() => css``);
 
-export const Description = styled.p(({ theme }) => css``);
+export const Description = styled.p(() => css``);
 
 export const MobyLink = styled.a(
-  ({ theme }) => css`
+  () => css`
     text-decoration: none;
   `,
 );
 
 export const MobyScore = styled.div(
   ({ theme }) => css`
-    color: ${theme.colors.blue};
+    color: ${theme.colors.main};
   `,
 );
 
 export const ScreenShots = styled.div(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

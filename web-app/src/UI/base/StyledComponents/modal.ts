@@ -27,7 +27,7 @@ export const ModalHeader = styled.div(
     width: 100%;
     max-width: ${cssSize(350)};
     padding: ${cssSize(4)};
-    background-image: ${gradients.blue};
+    background-image: ${gradients.purple};
     color: #fff;
   `,
 );

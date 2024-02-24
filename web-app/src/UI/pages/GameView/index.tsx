@@ -8,7 +8,6 @@ import { Modal, ModalContent, ModalHeader } from 'src/UI/base/StyledComponents/m
 import GameList from 'src/UI/components/GameList';
 import useApp from 'src/hooks/useApp';
 import { loadGameList } from 'src/utils/mobygames';
-import { gameInfo } from 'src/utils/test';
 
 import Loading from 'UI/base/Loading';
 import PageContainer from 'UI/base/PageContainer';
@@ -19,7 +18,7 @@ import { YoutubeView } from 'UI/components/YoutubeView';
 const GameViewPage = () => {
   const { darkTheme } = useApp();
   const [isLoading, setloading] = useState(false);
-  const [game, setGame] = useState<Models.GameInfo>(gameInfo);
+  const [game, setGame] = useState<Models.GameInfo>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -42,11 +41,11 @@ const GameViewPage = () => {
             <Icons type="list" />
             Description
           </Title>
-          <Icons type="close" size={8} onClick={() => setGame(gameInfo)} />
+          <Icons type="close" size={8} onClick={() => setGame(null)} />
         </ModalHeader>
         <ModalContent>
-          <MobyGameView game={game} />
-          <YoutubeView query={game?.n} />
+          {game && <MobyGameView game={game} />}
+          {game && <YoutubeView query={game?.n} />}
         </ModalContent>
       </Modal>
 
