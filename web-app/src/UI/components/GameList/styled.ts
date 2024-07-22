@@ -33,6 +33,7 @@ export const Card = styled.div(
     cursor: pointer;
     transition: 0.2s;
     animation: ${animations.fadeUp} 0.3s;
+    border: 1px solid ${theme.colors.text4};
 
     @media (max-width: ${screenSize.tablet}px) {
       max-width: unset;
@@ -43,9 +44,9 @@ export const Card = styled.div(
 export const CardImg = styled.img(
   ({ theme }) => css`
     width: ${cssSize(80)};
-    height: ${cssSize(95)};
+    height: ${cssSize(100)};
     max-width: ${cssSize(80)};
-    max-height: ${cssSize(95)};
+    max-height: ${cssSize(100)};
     background-color: ${theme.colors.bg3};
     border: none;
 
